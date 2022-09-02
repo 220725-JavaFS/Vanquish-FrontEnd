@@ -1,34 +1,36 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './model/login/login.component';
-import { CreateAccountComponent } from './model/create-account/create-account.component';
-import { PlayerProfileComponent } from './model/player-profile/player-profile.component';
-import { BattleGroundComponent } from './model/battle-ground/battle-ground.component';
-import { PlayerInfoPipe } from './pipes/player-info.pipe';
-import { ComponentsComponent } from './components/components.component';
-import { UpdatePlayerComponent } from './componets/update-player/update-player.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { LoginComponent } from './components/login/login.component'
 import { RegistrationComponent } from './components/registration/registration.component';
+import { UpdatePlayerComponent } from './components/update-player/update-player.component';
+import { PlayerProfileComponent } from './components/player-profile/player-profile.component';
+import { BattleGroundComponent } from './components/battle-ground/battle-ground.component';
+import { PlayerInfoPipe } from './pipes/player-info.pipe';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    CreateAccountComponent,
-    PlayerProfileComponent,
-    BattleGroundComponent,
-    PlayerInfoPipe,
-    ComponentsComponent,
-    UpdatePlayerComponent,
     NavBarComponent,
-    RegistrationComponent
+    LoginComponent,
+    RegistrationComponent,
+    UpdatePlayerComponent,
+    PlayerProfileComponent,
+    BattleGroundComponent, 
+    PlayerInfoPipe
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,   
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
