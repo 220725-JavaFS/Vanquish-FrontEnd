@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<div class="container">
+    <h2>List of Accounts</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Zipcode</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let account of accounts">
+                <td>{{account.id}}</td>
+                <td>{{account.firstName}}</td>
+                <td>{{account.lastName}}</td>
+                <td>{{account.username}}</td>
+                <td>{{account.email}}</td>
+                <td>{{account.zipcode}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
