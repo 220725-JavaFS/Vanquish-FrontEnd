@@ -1,13 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
-body {
+body {    
     background-color: lightblue;
-    background-image: url("~/assets/images/Sunny.jpg");
-        background-repeat: no-repeat;
-        background-size: 100% 125%;
 }
 
 .flex-container {
     display: flex;
+    background-image: url("~/assets/images/Sunny.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     flex-direction: row;
     flex-wrap:nowrap;    
     justify-content: space-between;
@@ -19,8 +19,15 @@ body {
 }
 .center {
     display:flex;
-    justify-content: space-between;
+    margin: 20px;
+    
+    
 }
 .health {
     color:red;
 }
+.battleText {
+    color:black;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white
+}
+
