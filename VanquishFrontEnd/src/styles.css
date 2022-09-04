@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 body {    
-    background-color: lightblue;
+    background-color: rgb(5, 3, 46);
 }
 
 .flex-container {
@@ -17,13 +17,37 @@ body {
     width: 20%;
     margin: 0 auto;
 }
+.attackmove-background {
+    display: flex;
+    
+background-image: url("~/assets/images/attackBackground.png");
+    background-repeat: no-repeat;
+}
+
 .center {
     display:flex;
-    margin: 20px;
-    
+    padding: 27px 5px 30px 70px;
+    margin: 20px;   
     
 }
+.battle-container {
+    position: relative;
+    border: 4px silver;
+        /* This sets the text relative to its normal positioning, allowing us to use the animation below */
+        animation: moveVideoText 3.75s;
+}
+@keyframes moveVideoText {
+    from {
+        top: -100vw;
+    }
+
+    /* This sets the position of the video text to above the viewport */
+    to {
+        top: 0vw;
+    }
+}
 .health {
+    
     color:red;
 }
 .battleText {
@@ -31,3 +55,12 @@ body {
     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white
 }
 
+.navbar-container {
+    background-color: rgb(28, 24, 135);    
+    width: 55%;
+    padding: 20px 105px;
+    border-radius: 15px 50px 30px;
+}
+.hover:hover {
+    background-color: rgb(230, 230, 217);
+}
