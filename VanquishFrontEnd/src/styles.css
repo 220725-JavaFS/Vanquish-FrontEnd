@@ -1,9 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
-html {
+body {    
     background-color: lightblue;
 }
 
+.flex-container {
+    display: flex;
+    background-image: url("~/assets/images/Sunny.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex-direction: row;
+    flex-wrap:nowrap;    
+    justify-content: space-between;
+    
+}
 .centerDiv {
     width: 20%;
     margin: 0 auto;
 }
+.center {
+    display:flex;
+    margin: 20px;
+    
+    
+}
+.health {
+    color:red;
+}
+.battleText {
+    color:black;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white
+}
+
