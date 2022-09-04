@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Account } from 'src/app/models/account';
+import { AccountService } from 'src/app/services/account.service';
 
 @Component({
   selector: 'app-account-list',
@@ -7,13 +8,31 @@ import { Account } from 'src/app/models/account';
   styleUrls: ['./account-list.component.css']
 })
 export class AccountListComponent implements OnInit {
-
-  account1 = new Account(1,"First", "Last", "User1", "Pwd","email@email.com",123456);
-  account2 = new Account(2,"First2", "Last2", "User2", "Pwd2","email2@email.com",123456);
-  accounts:Account[] = [this.account1,this.account2];
-  constructor() { }
+  accounts:Account[] = [];
+  account:Account = <Account>{};
+  constructor(private accountService:AccountService) { }
 
   ngOnInit(): void {
+    this.getAccounts();
+    this.getAccount(1);
+  }
+
+  private getAccounts(){
+    this.accountService.getAccounts().subscribe({
+      next:(data:Account[])=>{
+        this.accounts=data;
+      }
+    }
+    )
+  }
+
+  private getAccount(id:number){
+    this.accountService.getAccountByID(id).subscribe({
+      next:(data:Account)=>{
+        this.account=data;
+      }
+    }
+    )
   }
 
 }
