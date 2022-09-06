@@ -12,6 +12,7 @@ import { UpdatePlayerComponent } from './components/update-player/update-player.
 import { PlayerProfileComponent } from './components/player-profile/player-profile.component';
 import { BattleGroundComponent } from './components/battle-ground/battle-ground.component';
 import { PlayerInfoPipe } from './pipes/player-info.pipe';
+import { AccountListComponent } from './components/account-list/account-list.component';
 
 
 @NgModule({
@@ -24,7 +25,7 @@ import { PlayerInfoPipe } from './pipes/player-info.pipe';
     UpdatePlayerComponent,
     PlayerProfileComponent,
     BattleGroundComponent, 
-    PlayerInfoPipe
+    PlayerInfoPipe, AccountListComponent
   ],
   imports: [
     BrowserModule,
