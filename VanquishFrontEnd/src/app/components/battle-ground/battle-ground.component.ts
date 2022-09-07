@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Account } from '~/models/account';
+import { Account } from 'src/app/models/account';
+//import { Account } from '~/models/account';
 
 @Component({
   selector: 'app-battle-ground',
@@ -12,14 +13,14 @@ import { Account } from '~/models/account';
 export class BattleGroundComponent implements OnInit {
 
   constructor(private httpClient: HttpClient) {  }
-
-  ngOnInit(): void {
+weather = this.getWeather('Houston');
+  ngOnInit(): string {
     let City: string;
     let weather: string;
     //Assign city from player profile city location
     City = Account.city;
     weather = this.getWeather(City);
-    
+    return weather;
     
   }
 
@@ -29,7 +30,7 @@ export class BattleGroundComponent implements OnInit {
     return JSONObject;
     
     //let objectValue = JSON.parse(JSONObject);
-    //return objectValue["weather_descriptions"];
+   // return objectValue["weather_descriptions"];
 
 
   }
