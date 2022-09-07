@@ -1,1 +1,50 @@
-<p>player-profile works!</p>
+<!DOCTYPE html>
+<html>
+   
+<p style="color: white">player-profile works!</p>
+<body>
+    <style>
+        article {
+  float: right;
+  padding: 20px;
+  width: 50%;
+  background-color: dark blue;
+  height: 300px; 
+}
+    </style>
+<div class="centerDiv" >
+    <h1 style="color: white">Player Profile</h1>
+</div>
+<div class="container">
+    <!--Information will be populated with database data in appropriate locations-->
+    <p class="p-id" style="color:white">User ID: 1</p>
+<p class="p-fName" style="color: white">First Name: User</p>
+<p class="p-lName" style="color: white">Last Name: User1</p>
+<p class="p-uName" style="color: white">User Name: User2</p>
+<p class="p-Pass" style="color: white">PassWord: User3</p>
+<p class="p-Zip" style="color: white">ZipCode: 11111</p>
+</div>
+<div class="container">
+    <section>
+        <article>
+            <!--Need to adjust layout where new changes is next to current information-->
+    <h3 style="color:aqua">If You Would Like to Change Your Information, Please Input New Data Below.</h3>
+    <form>
+        <input type="text" id="newfName" placeholder="First Name"><br><br>
+        <input type="text" id="newlName" placeholder="Last Name"><br><br>
+        <input type="text" id="newuName" placeholder="User Name"><br><br>
+        <input type="text" id="newuPass" placeholder="Password"><br><br>
+        <input type="text" id="newZip" placeholder="ZipCode"><br><br>
+        <button type="submit" class="hover" text="Update">Update</button>      
+    </form>
+</article>
+</section>
+</div>
+<br>
+<br>
+<!--Need to make image appear on right side while information stays on left side-->
+<div class="container">
+    <img [src]="ImagePath" alt="Character Choice" style="width:400px; height: 500px">
+</div>
+</body>
+</html>
