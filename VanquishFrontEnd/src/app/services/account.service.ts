@@ -11,30 +11,38 @@ export class AccountService {
   //temp baseURL
   private baseURL = 'http://localhost:8080/Webapp/accounts/'
   
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
-  getAccounts(): Observable<Account[]>{
+  getAccounts(): Observable<Account[]> {
     //return this.httpClient.get<Account[]>(`${this.baseURL}`);
-    return this.httpClient.get(this.baseURL,{
-      headers:{
-        accept:"application/json"
+    return this.httpClient.get(this.baseURL, {
+      headers: {
+        accept: "application/json"
       }
     }) as Observable<Account[]>;
   }
 
-  getAccountByID(id:number):Observable<Account>{
-    return this.httpClient.get(this.baseURL+ `${id}`,{
-      headers:{
-        accept:"application/json"
+  getAccountByID(id: number): Observable<Account> {
+    return this.httpClient.get(this.baseURL + `${id}`, {
+      headers: {
+        accept: "application/json"
       }
     }) as Observable<Account>;
   }
 
-  getAccountByUsername(username:string):Observable<Account>{
-    return this.httpClient.get(this.baseURL+ `${username}`,{
-      headers:{
-        accept:"application/json"
+  getAccountByUsername(username: string): Observable<Account> {
+    return this.httpClient.get(this.baseURL + `${username}`, {
+      headers: {
+        accept: "application/json"
       }
     }) as Observable<Account>;
   }
-}
+  
+
+  
+
+  
+  
+
+  }
+
