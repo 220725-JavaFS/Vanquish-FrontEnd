@@ -3,7 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Account } from 'src/app/models/account';
-//import { Account } from '~/models/account';
+import { Weather } from 'src/app/models/weather';
+import { WeatherService } from 'src/app/services/weather.service';
+
 
 @Component({
   selector: 'app-battle-ground',
@@ -12,28 +14,35 @@ import { Account } from 'src/app/models/account';
 })
 export class BattleGroundComponent implements OnInit {
 
-  constructor(private httpClient: HttpClient) {  }
-weather = this.getWeather('Houston');
-  ngOnInit(): string {
-    let City: string;
-    let weather: string;
-    //Assign city from player profile city location
-    City = Account.city;
-    weather = this.getWeather(City);
-    return weather;
+  City: string = "Houston";
+  visibility: boolean = false;
+  weather: Weather[] = [];
+  constructor(private weatherService: WeatherService) { }  
+
+  ngOnInit(): void {
+    
+    this.getTheWeather(this.City);
     
   }
 
-  getWeather(location: string) {
-    let JSONweather = this.httpClient.get('http://api.weatherstack.com/current?access_key=a070930780ba3b2ea3632e06e6507f4a&query=' + location);
-    let JSONObject = JSON.stringify(JSONweather);
-    return JSONObject;
-    
-    //let objectValue = JSON.parse(JSONObject);
-   // return objectValue["weather_descriptions"];
-
-
+  
+  public getTheWeather(City: string) {
+    this.weatherService.getWeather(City).subscribe({
+      next: (data: Weather[]) => {
+        this.weather = data;
+        return this.weather;
+      }
+    }
+    )
   }
+ 
+  
+   
+    
+   
+
+
+  
 
  
 }
