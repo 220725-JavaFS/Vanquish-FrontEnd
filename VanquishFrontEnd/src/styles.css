@@ -18,12 +18,15 @@ body {
     margin: 0 auto;
 }
 .attackmove-background {
-    display: flex;
-    
+    display: flex;    
 background-image: url("~/assets/images/attackBackground.png");
     background-repeat: no-repeat;
+    
 }
-
+.attack-animate {
+    position: relative;
+animation: moveAttackText 3.75s;
+}
 .center {
     display:flex;
     padding: 27px 5px 30px 70px;
@@ -33,7 +36,7 @@ background-image: url("~/assets/images/attackBackground.png");
 .battle-container {
     position: relative;
     border: 4px silver;
-        /* This sets the text relative to its normal positioning, allowing us to use the animation below */
+        
         animation: moveVideoText 3.75s;
 }
 @keyframes moveVideoText {
@@ -42,6 +45,14 @@ background-image: url("~/assets/images/attackBackground.png");
     }
 
     /* This sets the position of the video text to above the viewport */
+    to {
+        top: 0vw;
+    }
+}
+@keyframes moveAttackText {
+    from {
+        top: +100vw;
+    }    
     to {
         top: 0vw;
     }
@@ -63,4 +74,12 @@ background-image: url("~/assets/images/attackBackground.png");
 }
 .hover:hover {
     background-color: rgb(230, 230, 217);
+}
+.BasicFont {
+    color:white;
+    
+    justify-content: center;
+}
+.weather-container {
+    text-align: center;
 }
