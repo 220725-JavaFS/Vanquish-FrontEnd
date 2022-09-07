@@ -3,7 +3,7 @@ body {
     background-color: rgb(5, 3, 46);
 }
 
-.flex-container {
+.flex-containerSunny {
     display: flex;
     background-image: url("~/assets/images/Sunny.jpg");
     background-repeat: no-repeat;
@@ -13,6 +13,26 @@ body {
     justify-content: space-between;
     
 }
+.flex-containerCloudy {
+    display: flex;
+    background-image: url("~/assets/images/Cloudy.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+
+}
+.flex-containerRainy {
+    display: flex;
+    background-image: url("~/assets/images/Rainy.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+
+}
 .centerDiv {
     width: 20%;
     margin: 0 auto;
@@ -21,6 +41,7 @@ body {
     display: flex;    
 background-image: url("~/assets/images/attackBackground.png");
     background-repeat: no-repeat;
+    
     
 }
 .attack-animate {
@@ -82,4 +103,12 @@ animation: moveAttackText 3.75s;
 }
 .weather-container {
     text-align: center;
+}
+.create-char-container {
+    display:flex;
+    justify-content: center;
+    margin-left: -300px;
+    background-image: url("~/assets/images/CreateAccountBackground.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
