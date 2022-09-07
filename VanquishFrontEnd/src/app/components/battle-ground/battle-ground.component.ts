@@ -19,7 +19,7 @@ export class BattleGroundComponent implements OnInit {
     //Assign city from player profile city location
     City = Account.city;
     weather = this.getWeather(City);
-
+    
     
   }
 
@@ -28,6 +28,11 @@ export class BattleGroundComponent implements OnInit {
     let JSONObject = JSON.stringify(JSONweather);
     return JSONObject;
     
+    //let objectValue = JSON.parse(JSONObject);
+    //return objectValue["weather_descriptions"];
+
 
   }
+
+ 
 }
