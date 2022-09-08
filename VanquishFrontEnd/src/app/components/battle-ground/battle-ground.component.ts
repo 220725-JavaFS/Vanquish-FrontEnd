@@ -13,28 +13,26 @@ export class BattleGroundComponent implements OnInit {
 
 
   weatherCoord:WeatherCoord[]=[];
-  weatherCurrent:Weather[]=[];
-  WeatherData:any;
+  weatherData:any;
   constructor(private weatherService:WeatherService) {  }
 
   ngOnInit(): void{
-    this.getGeoCoordinatesByCity("Dallas");
-    this.getWeather(44.34,10.99);
+    this.getWeatherByCity("Dallas");
   }
 
-  private getGeoCoordinatesByCity(city:string){
+  /*
+  * getWeatherByCity(city), uses two subscibers, first it gets the lat/lon from Coord API 
+  * using City, Then it gets the lat and lon and calls the second subscriber to get the Main Weather
+  * and weather description
+  */
+  
+  private getWeatherByCity(city:string){
     this.weatherService.getGeoLocationByCity(city).subscribe({
       next:(data:WeatherCoord[])=>{
         this.weatherCoord=data;
-        // delete this loop b4 final production
         for(var weather of this.weatherCoord){
-          console.log(weather.name);
-          console.log(weather.lon);
-          console.log(weather.lat);
-          console.log(weather.state);
-          console.log(weather.country);
+          this.getWeather(weather.lat,weather.lon);
         }
-        //Delete ^
       }
     })
   }
@@ -42,13 +40,9 @@ export class BattleGroundComponent implements OnInit {
   private getWeather(lat:number,lon:number){
     this.weatherService.getWeatherByCoord(lat,lon).subscribe({
       next:(data:any)=>{
-        this.WeatherData=data;
-        // delete this loop b4 final production
-        console.log(this.WeatherData);
-        // for(var weather of this.weatherCurrent){
-          
-        // }
-        //Delete ^
+        this.weatherData=data;
+        this.weatherData.weatherMain = this.weatherData.weather[0].main;
+        this.weatherData.weatherDescription = this.weatherData.weather[0].description;
       }
   })
  
