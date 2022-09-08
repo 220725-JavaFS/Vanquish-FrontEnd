@@ -13,6 +13,7 @@ export class BattleGroundComponent implements OnInit {
 
 
   weatherCoord:WeatherCoord[]=[];
+  weather:Weather = <Weather>{};
   weatherData:any;
   constructor(private weatherService:WeatherService) {  }
 
@@ -41,8 +42,8 @@ export class BattleGroundComponent implements OnInit {
     this.weatherService.getWeatherByCoord(lat,lon).subscribe({
       next:(data:any)=>{
         this.weatherData=data;
-        this.weatherData.weatherMain = this.weatherData.weather[0].main;
-        this.weatherData.weatherDescription = this.weatherData.weather[0].description;
+        this.weather.weatherMain = this.weatherData.weather[0].main;
+        this.weather.weatherDescription = this.weatherData.weather[0].description;
       }
   })
  

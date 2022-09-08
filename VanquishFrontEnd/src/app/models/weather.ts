@@ -1,4 +1,4 @@
 export class Weather {
-    constructor(public coord:object){};
+    constructor(public weatherMain:string, public weatherDescription:string){};
 
 }
