@@ -41,12 +41,13 @@ export class BattleGroundComponent implements OnInit {
 
   private getWeather(lat:number,lon:number){
     this.weatherService.getWeatherByCoord(lat,lon).subscribe({
-      next:(data:Weather[])=>{
-        this.weatherCurrent=data;
+      next:(data:any)=>{
+        this.WeatherData=data;
         // delete this loop b4 final production
-        for(var weather of this.weatherCoord){
+        console.log(this.WeatherData);
+        // for(var weather of this.weatherCurrent){
           
-        }
+        // }
         //Delete ^
       }
   })
