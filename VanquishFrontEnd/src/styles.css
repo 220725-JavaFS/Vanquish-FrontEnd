@@ -97,9 +97,8 @@ animation: moveAttackText 3.75s;
     background-color: rgb(230, 230, 217);
 }
 .BasicFont {
-    color:white;
+    color:white;    
     
-    justify-content: center;
 }
 .weather-container {
     text-align: center;
@@ -111,4 +110,8 @@ animation: moveAttackText 3.75s;
     background-image: url("~/assets/images/CreateAccountBackground.png");
     background-repeat: no-repeat;
     background-size: cover;
+}
+.characterDesriptions {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
 }
