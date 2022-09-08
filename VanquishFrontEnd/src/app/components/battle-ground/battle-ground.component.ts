@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
-
-
-
+import { Weather } from 'src/app/models/weather';
+import { WeatherCoord } from 'src/app/models/weather-coord';
+import { WeatherService } from 'src/app/services/weather.service';
 import { Weather } from 'src/app/models/weather';
 import { WeatherService } from 'src/app/services/weather.service';
 
@@ -14,32 +13,79 @@ import { WeatherService } from 'src/app/services/weather.service';
 })
 export class BattleGroundComponent implements OnInit {
 
-  City: string = "Houston";
-  visibility: boolean = false;
-  //weather: Weather[] = [];
-  weatherDetails = {
-    weather_descriptions: ''
-  };
-  constructor(private weatherService: WeatherService) { }  
+  weatherCoord:WeatherCoord[]=[];
+  weatherCurrent:Weather[]=[];
+  WeatherData:any;
+  constructor(private weatherService:WeatherService) {  }
 
-  ngOnInit() {
-    this.getTheWeather;
-   
-    
+  ngOnInit(): void{
+    this.getGeoCoordinatesByCity("Dallas");
+    this.getWeather(44.34,10.99);
   }
+
+  private getGeoCoordinatesByCity(city:string){
+    this.weatherService.getGeoLocationByCity(city).subscribe({
+      next:(data:WeatherCoord[])=>{
+        this.weatherCoord=data;
+        // delete this loop b4 final production
+        for(var weather of this.weatherCoord){
+          console.log(weather.name);
+          console.log(weather.lon);
+          console.log(weather.lat);
+          console.log(weather.state);
+          console.log(weather.country);
+        }
+        //Delete ^
+      }
+    })
+  }
+
+  private getWeather(lat:number,lon:number){
+    this.weatherService.getWeatherByCoord(lat,lon).subscribe({
+      next:(data:Weather[])=>{
+        this.weatherCurrent=data;
+        // delete this loop b4 final production
+        for(var weather of this.weatherCoord){
+
+        }
+        //Delete ^
+      }
+  })
+
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
-  getTheWeather(City: string) {
-    this.weatherService.getWeather(City).subscribe((response)=> {this.weatherDetails={
-weather_descriptions:response.weather[0].descriptions}});
-    }
-    
-    //     this.weather = data;
-    //     return this.weather;
-    //   }
-    // }
-    // )
-  }
  
   
    
