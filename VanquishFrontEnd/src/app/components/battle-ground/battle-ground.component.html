@@ -27,6 +27,6 @@
         </div>        
     </div>
     <div class="weather-container">
-        <p class="BasicFont">The Weather is: {{weather}}</p>
+        <p class="BasicFont" *ngFor="let weather of weatherCoord">The Weather is: {{weather.name}} Lat: {{weather.lat}}</p>
     </div>
 </div>
