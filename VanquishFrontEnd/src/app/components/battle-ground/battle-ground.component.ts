@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Account } from 'src/app/models/account';
+import { Weather } from 'src/app/models/weather';
+import { WeatherCoord } from 'src/app/models/weather-coord';
+import { WeatherService } from 'src/app/services/weather.service';
 //import { Account } from '~/models/account';
 
 @Component({
@@ -12,28 +11,42 @@ import { Account } from 'src/app/models/account';
 })
 export class BattleGroundComponent implements OnInit {
 
-  constructor(private httpClient: HttpClient) {  }
-weather = this.getWeather('Houston');
-  ngOnInit(): string {
-    let City: string;
-    let weather: string;
-    //Assign city from player profile city location
-    City = Account.city;
-    weather = this.getWeather(City);
-    return weather;
-    
+
+  weatherCoord:WeatherCoord[]=[];
+  weather:Weather = <Weather>{};
+  weatherData:any;
+  constructor(private weatherService:WeatherService) {  }
+
+  ngOnInit(): void{
+    this.getWeatherByCity("Dallas");
   }
 
-  getWeather(location: string) {
-    let JSONweather = this.httpClient.get('http://api.weatherstack.com/current?access_key=a070930780ba3b2ea3632e06e6507f4a&query=' + location);
-    let JSONObject = JSON.stringify(JSONweather);
-    return JSONObject;
-    
-    //let objectValue = JSON.parse(JSONObject);
-   // return objectValue["weather_descriptions"];
-
-
+  /*
+  * getWeatherByCity(city), uses two subscibers, first it gets the lat/lon from Coord API 
+  * using City, Then it gets the lat and lon and calls the second subscriber to get the Main Weather
+  * and weather description
+  */
+  
+  private getWeatherByCity(city:string){
+    this.weatherService.getGeoLocationByCity(city).subscribe({
+      next:(data:WeatherCoord[])=>{
+        this.weatherCoord=data;
+        for(var weather of this.weatherCoord){
+          this.getWeather(weather.lat,weather.lon);
+        }
+      }
+    })
   }
 
+  private getWeather(lat:number,lon:number){
+    this.weatherService.getWeatherByCoord(lat,lon).subscribe({
+      next:(data:any)=>{
+        this.weatherData=data;
+        this.weather.weatherMain = this.weatherData.weather[0].main;
+        this.weather.weatherDescription = this.weatherData.weather[0].description;
+      }
+  })
  
 }
+}
+
