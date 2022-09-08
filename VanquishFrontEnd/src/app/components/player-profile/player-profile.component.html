@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
    
-<p style="color: white">player-profile works!</p>
+
 <body>
     <style>
         article {
@@ -12,29 +12,35 @@
   height: 300px; 
 }
     </style>
-<div class="centerDiv" >
+<div >
     <h1 style="color: white">Player Profile</h1>
 </div>
-<div class="container">
-    <!--Information will be populated with database data in appropriate locations-->
-    <p class="p-id" style="color:white">User ID: 1</p>
-<p class="p-fName" style="color: white">First Name: User</p>
-<p class="p-lName" style="color: white">Last Name: User1</p>
-<p class="p-uName" style="color: white">User Name: User2</p>
-<p class="p-Pass" style="color: white">PassWord: User3</p>
-<p class="p-Zip" style="color: white">ZipCode: 11111</p>
+<div>
+    <div class="BasicFont">    
+        <p class="p-id">User ID: </p>
+        <p class="p-uName">User Name: </p>
+        <p class="p-Pass">PassWord: </p>
+        <p class="p-Zip">City: </p>
+        <p>Character:</p>
+    </div>
 </div>
+
 <div class="container">
     <section>
         <article>
             <!--Need to adjust layout where new changes is next to current information-->
-    <h3 style="color:aqua">If You Would Like to Change Your Information, Please Input New Data Below.</h3>
-    <form>
-        <input type="text" id="newfName" placeholder="First Name"><br><br>
-        <input type="text" id="newlName" placeholder="Last Name"><br><br>
+    <h3 class="BasicFont">If You Would Like to Change Your Information, Please Input New Data Below.</h3>
+    <form>        
         <input type="text" id="newuName" placeholder="User Name"><br><br>
         <input type="text" id="newuPass" placeholder="Password"><br><br>
-        <input type="text" id="newZip" placeholder="ZipCode"><br><br>
+        <input type="text" id="newCity" placeholder="City"><br><br>
+        <h3 class="BasicFont">Change Character</h3>
+        <select name="characters">
+            <option value="Paladin">Palidan</option>
+            <option value="Wizard">Wizard</option>
+            <option value="Rogue">Rogue</option>
+            <option value="Warrior">Warrior</option>
+        </select><br><br>
         <button type="submit" class="hover" text="Update">Update</button>      
     </form>
 </article>
