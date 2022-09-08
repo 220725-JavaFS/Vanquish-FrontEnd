@@ -11,14 +11,16 @@ import { WeatherService } from 'src/app/services/weather.service';
 })
 export class BattleGroundComponent implements OnInit {
 
-
+  sunny: boolean = false;
+  cloudy: boolean = false;
+  rainy: boolean = false;
   weatherCoord:WeatherCoord[]=[];
   weather:Weather = <Weather>{};
   weatherData:any;
   constructor(private weatherService:WeatherService) {  }
 
   ngOnInit(): void{
-    this.getWeatherByCity("Dallas");
+    this.getWeatherByCity("Gainesville");
   }
 
   /*
@@ -44,6 +46,23 @@ export class BattleGroundComponent implements OnInit {
         this.weatherData=data;
         this.weather.weatherMain = this.weatherData.weather[0].main;
         this.weather.weatherDescription = this.weatherData.weather[0].description;
+        if (
+          this.weather.weatherMain == 'Clear')
+        {
+          this.sunny = true;
+        } else if (
+          this.weather.weatherMain == 'Clouds')
+        {
+          this.cloudy = true;
+        } else if (            
+          this.weather.weatherMain == 'Rain' ||
+          this.weather.weatherMain == 'Drizzle' ||
+          this.weather.weatherMain == 'Thunderstorm' )
+        {
+              this.rainy = true;
+        } else {
+          this.sunny = true;
+        }
       }
   })
  
