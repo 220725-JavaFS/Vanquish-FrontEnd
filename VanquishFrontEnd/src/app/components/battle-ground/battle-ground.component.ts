@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Account } from 'src/app/models/account';
+import { Weather } from 'src/app/models/weather';
+import { WeatherCoord } from 'src/app/models/weather-coord';
+import { WeatherService } from 'src/app/services/weather.service';
 //import { Account } from '~/models/account';
 
 @Component({
@@ -12,28 +11,46 @@ import { Account } from 'src/app/models/account';
 })
 export class BattleGroundComponent implements OnInit {
 
-  constructor(private httpClient: HttpClient) {  }
-weather = this.getWeather('Houston');
-  ngOnInit(): string {
-    let City: string;
-    let weather: string;
-    //Assign city from player profile city location
-    City = Account.city;
-    weather = this.getWeather(City);
-    return weather;
-    
+
+  weatherCoord:WeatherCoord[]=[];
+  weatherCurrent:Weather[]=[];
+  WeatherData:any;
+  constructor(private weatherService:WeatherService) {  }
+
+  ngOnInit(): void{
+    this.getGeoCoordinatesByCity("Dallas");
+    this.getWeather(44.34,10.99);
   }
 
-  getWeather(location: string) {
-    let JSONweather = this.httpClient.get('http://api.weatherstack.com/current?access_key=a070930780ba3b2ea3632e06e6507f4a&query=' + location);
-    let JSONObject = JSON.stringify(JSONweather);
-    return JSONObject;
-    
-    //let objectValue = JSON.parse(JSONObject);
-   // return objectValue["weather_descriptions"];
-
-
+  private getGeoCoordinatesByCity(city:string){
+    this.weatherService.getGeoLocationByCity(city).subscribe({
+      next:(data:WeatherCoord[])=>{
+        this.weatherCoord=data;
+        // delete this loop b4 final production
+        for(var weather of this.weatherCoord){
+          console.log(weather.name);
+          console.log(weather.lon);
+          console.log(weather.lat);
+          console.log(weather.state);
+          console.log(weather.country);
+        }
+        //Delete ^
+      }
+    })
   }
 
+  private getWeather(lat:number,lon:number){
+    this.weatherService.getWeatherByCoord(lat,lon).subscribe({
+      next:(data:Weather[])=>{
+        this.weatherCurrent=data;
+        // delete this loop b4 final production
+        for(var weather of this.weatherCoord){
+          
+        }
+        //Delete ^
+      }
+  })
  
 }
+}
+
