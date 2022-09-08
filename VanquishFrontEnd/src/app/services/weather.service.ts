@@ -23,12 +23,12 @@ export class WeatherService {
     }) as Observable<WeatherCoord[]>;
   }
 
-  getWeatherByCoord(lat:number, lon:number): Observable<Weather[]>{
+  getWeatherByCoord(lat:number, lon:number): Observable<any>{
     return this.httpClient.get(this.baseWeatherUrl+`${lat}&lon=${lon}`+this.apiWeatherKey,{
       headers:{
         accept: "application/json"
       }
-    }) as Observable<Weather[]>;
+    }) as Observable<any>;
   }
 //   getWeatherByCoord(lat:number,lon:number): Observable<
 }
