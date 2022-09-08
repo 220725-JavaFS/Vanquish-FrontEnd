@@ -1,13 +1,16 @@
+
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Weather } from '../models/weather';
 import { WeatherCoord } from '../models/weather-coord';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class WeatherService {
+
 
   private apiCoordKey = "&limit=1&appid=49f498bd3cad5e6af790e04e37042a5b";
   private baseCoordUrl = "http://api.openweathermap.org/geo/1.0/direct?q=";
@@ -31,4 +34,5 @@ export class WeatherService {
     }) as Observable<Weather[]>;
   }
 //   getWeatherByCoord(lat:number,lon:number): Observable<
+
 }

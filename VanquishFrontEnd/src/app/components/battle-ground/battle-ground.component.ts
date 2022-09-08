@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Weather } from 'src/app/models/weather';
 import { WeatherCoord } from 'src/app/models/weather-coord';
 import { WeatherService } from 'src/app/services/weather.service';
+
 //import { Account } from '~/models/account';
+
 
 @Component({
   selector: 'app-battle-ground',
@@ -45,12 +47,16 @@ export class BattleGroundComponent implements OnInit {
         this.weatherCurrent=data;
         // delete this loop b4 final production
         for(var weather of this.weatherCoord){
-          
+
         }
         //Delete ^
       }
   })
- 
+
 }
 }
+
+
+
+
 

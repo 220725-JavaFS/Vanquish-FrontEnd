@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Account } from '../models/account';
+import { Weather } from '../models/weather';
 
 @Injectable({
   providedIn: 'root'
@@ -37,6 +38,7 @@ export class AccountService {
       }
     }) as Observable<Account>;
   }
+ 
   
 
   
