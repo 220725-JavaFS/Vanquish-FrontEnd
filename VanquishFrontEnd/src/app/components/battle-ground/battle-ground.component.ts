@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Account } from 'src/app/models/account';
+
+
+
+
 import { Weather } from 'src/app/models/weather';
 import { WeatherService } from 'src/app/services/weather.service';
 
@@ -16,24 +16,29 @@ export class BattleGroundComponent implements OnInit {
 
   City: string = "Houston";
   visibility: boolean = false;
-  weather: Weather[] = [];
+  //weather: Weather[] = [];
+  weatherDetails = {
+    weather_descriptions: ''
+  };
   constructor(private weatherService: WeatherService) { }  
 
-  ngOnInit(): void {
-    
-    this.getTheWeather(this.City);
+  ngOnInit() {
+    this.getTheWeather;
+   
     
   }
 
   
-  public getTheWeather(City: string) {
-    this.weatherService.getWeather(City).subscribe({
-      next: (data: Weather[]) => {
-        this.weather = data;
-        return this.weather;
-      }
+  getTheWeather(City: string) {
+    this.weatherService.getWeather(City).subscribe((response)=> {this.weatherDetails={
+weather_descriptions:response.weather[0].descriptions}});
     }
-    )
+    
+    //     this.weather = data;
+    //     return this.weather;
+    //   }
+    // }
+    // )
   }
  
   
@@ -45,4 +50,4 @@ export class BattleGroundComponent implements OnInit {
   
 
  
-}
+
