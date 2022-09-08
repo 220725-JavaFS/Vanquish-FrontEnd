@@ -21,6 +21,7 @@ export class BattleGroundComponent implements OnInit {
 
   ngOnInit(): void{
     this.getWeatherByCity("Gainesville");
+    
   }
 
   /*
@@ -64,8 +65,8 @@ export class BattleGroundComponent implements OnInit {
           this.sunny = true;
         }
       }
-  })
- 
-}
+  }) 
+  }   
+
 }
 

@@ -11,10 +11,11 @@ export class AccountListComponent implements OnInit {
   accounts:Account[] = [];
   account:Account = <Account>{};
   constructor(private accountService:AccountService) { }
-
+  username: string = "";
   ngOnInit(): void {
     this.getAccounts();
     this.getAccount(1);
+    this.getAccountbyUsername(this.username)
   }
 
   private getAccounts(){
@@ -34,5 +35,11 @@ export class AccountListComponent implements OnInit {
     }
     )
   }
-
+  private getAccountbyUsername(username: string) {
+    this.accountService.getAccountByUsername(username).subscribe({
+      next: (data: Account) => {
+        this.account = data;
+      }
+    })
+  }
 }

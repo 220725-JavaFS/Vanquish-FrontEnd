@@ -2,28 +2,37 @@
 
     <div class="centerDiv">
         <h1 class="BasicFont">Create an account!</h1>
-        <form>
-            <input type="text" id="createaccountform" placeholder="User name"><br><br>
-            <input type="text" id="createaccountform" placeholder="Password"><br><br>
-            <input type="text" id="createaccountform" placeholder="City"><br><br>           
+        <form id = "createAccount">
+            <input type="text" id="createaccountform1" placeholder="User name"><br><br>
+            <input type="text" id="createaccountform2" placeholder="Password"><br><br>
+            <input type="text" id="createaccountform3" placeholder="City"><br><br>  
+            <label for="characters" class="BasicFont">Choose a Character</label><br>
+            <select name="characters">
+                <option value="Paladin">Palidan</option>
+                <option value="Wizard">Wizard</option>
+                <option value="Rogue">Rogue</option>
+                <option value="Warrior">Warrior</option>                
+            </select><br> <br>
+            <button type="submit" onclick="createAccount()" text="Create">Create</button>
         </form><br><br>
     </div>
-    <div class="create-char-container">
-         <form>
-             <!--Javascript will be needed to save the variable onclick-->            
+    <div class="create-char-container">               
+            <H2 class="BasicFont">Palidan</H2>
             <img src="/assets/images/Paladin.png" alt="Paladin" sizes="width=287" height="500">
-            <input type="radio" name="charSelect">  
+            <H2 class="BasicFont">Wizard</H2>
             <img src="/assets/images/Wizard.png" alt="Wizard" sizes="width=287" height="500">
-            <input type="radio" name="charSelect">
+            <H2 class="BasicFont">Rogue</H2>
             <img src="/assets/images/Rogue.png" alt="Rogue" sizes="width=287" height="500">
-            <input type="radio" name="charSelect">
+            <H2 class="BasicFont">Warrior</H2>
             <img src="/assets/images/Warrior.png" alt="Warrior" sizes="width=287" height="500">
-            <input type="radio" name="charSelect">                
-            </form>
-        </div>
+                           
+            
+    </div>
         <br><br>    
-        <div class="centerDiv">            
-            <!--Needs to validate that a character was choosen onclick-->
-        <button type="submit" id="create-btn" text="Create">Create</button>
+    <div class="characterDesriptions">            
+        <h4 class="BasicFont">The Palidan is the best leader.<br> His attacks are stable in all element conditions.</h4>
+        <h4 class="BasicFont">The Wizard is the most powerful.<br> His attacks do some bonus damage in rainy weather.</h4>
+        <h4 class="BasicFont">The Rogue is the sneakiest.<br>He is the weakest, but does large bonus damage in cloudy conditions</h4>
+        <h4 class="BasicFont">The Warrior is a mighty Warlord.<br>He uses brute force and smashes his foes best in clear weather conditions</h4>
     </div>
         
