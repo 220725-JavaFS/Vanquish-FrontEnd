@@ -20,7 +20,7 @@ export class BattleGroundComponent implements OnInit {
   constructor(private weatherService:WeatherService) {  }
 
   ngOnInit(): void{
-    this.getWeatherByCity("Nashville");
+    this.getWeatherByCity("Gainesville");
     
   }
 
