@@ -89,7 +89,7 @@ animation: moveAttackText 3.75s;
 
 .navbar-container {
     background-color: rgb(28, 24, 135);    
-    width: 55%;
+    width: 25%;
     padding: 20px 105px;
     border-radius: 15px 50px 30px;
 }
