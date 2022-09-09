@@ -20,7 +20,7 @@ export class BattleGroundComponent implements OnInit {
   constructor(private weatherService:WeatherService) {  }
 
   ngOnInit(): void{
-    this.getWeatherByCity("Gainesville");
+    this.getWeatherByCity("Dallas");
     
   }
 
@@ -47,6 +47,8 @@ export class BattleGroundComponent implements OnInit {
         this.weatherData=data;
         this.weather.weatherMain = this.weatherData.weather[0].main;
         this.weather.weatherDescription = this.weatherData.weather[0].description;
+        this.weather.weatherTemp = this.weatherData.main.temp;
+        this.weather.weatherTemp = (((this.weather.weatherTemp - 273.15)*9)/5)+32;
         if (
           this.weather.weatherMain == 'Clear')
         {
