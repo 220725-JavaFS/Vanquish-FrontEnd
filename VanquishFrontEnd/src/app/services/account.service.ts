@@ -37,7 +37,9 @@ export class AccountService {
       }
     }) as Observable<Account>;
   }
-  
+  createAccount(account:any): void {
+    //initiate database storage
+  }
   
   
 
