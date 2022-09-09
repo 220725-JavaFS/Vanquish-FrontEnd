@@ -36,9 +36,14 @@
         <input type="text" id="newCity" placeholder="City"><br><br>
         <h3 class="BasicFont">Change Character</h3>
         <select name="characters">
+
             <option value="Default">Default</option>
             <option value="Paladin">Paladin</option>
             <option value="Wizard">Wizard</option>
+
+            <option *ngIf(Character[0])='Paladin'>{{Character[0]}}</option>
+            <option value="Wizard">{{Character[0]}}</option>
+
             <option value="Rogue">Rogue</option>
             <option value="Warrior">Warrior</option>
         </select><br><br>
@@ -51,7 +56,7 @@
 <br>
 <!--Need to make image appear on right side while information stays on left side-->
 <div class="container">
-    <img [src]="ImagePath" alt="Character Choice" style="width:400px; height: 500px">
+    <img src="ImagePath" alt="Character Choice" style="width:400px; height: 500px">
 </div>
 </body>
 </html>
