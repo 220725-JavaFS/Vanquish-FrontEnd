@@ -8,7 +8,7 @@ import { Account } from '../models/account';
   providedIn: 'root'
 })
 export class PlayerinfoService {
-
+  private baseURL = 'http://localhost:8080/Webapp/accounts/'
   constructor(private httpClient:HttpClient) { }
 
   getAccountByID(id: number): Observable<Account> {
