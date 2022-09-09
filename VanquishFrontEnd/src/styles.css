@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 body {    
-    background-color: rgb(5, 3, 46);
+    background-color: rgb(19, 13, 145);
 }
 
 .flex-containerSunny {
@@ -38,26 +38,25 @@ body {
     margin: 0 auto;
 }
 .attackmove-background {
-    display: flex;    
-background-image: url("~/assets/images/attackBackground.png");
-    background-repeat: no-repeat;
-    
-    
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+          
 }
 .attack-animate {
     position: relative;
 animation: moveAttackText 3.75s;
 }
 .center {
-    display:flex;
-    padding: 27px 5px 30px 70px;
-    margin: 20px;   
+    display: flex; 
+    margin-left: 50px;
+       
     
 }
 .battle-container {
     position: relative;
-    border: 4px silver;        
+    border: 6px silver solid;        
     animation: moveVideoText 3.75s;
+    box-shadow: 5px 10px rgb(2, 2, 7);
 }
 @keyframes moveVideoText {
     from {
@@ -83,21 +82,30 @@ animation: moveAttackText 3.75s;
 }
 .battleText {
     color:black;
-    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
 .navbar-container {
-    background-color: rgb(28, 24, 135);    
+    background-color: rgb(52, 46, 234);    
     width: 25%;
-    padding: 20px 105px;
-    border-radius: 15px 50px 30px;
+    padding: 20px 80px;
+    border-radius: 15px 300px 30px;
+    border: 1px solid;
+    box-shadow: 5px 10px rgb(2, 2, 7);
+    
 }
 .hover:hover {
     background-color: rgb(230, 230, 217);
 }
 .BasicFont {
-    color:white;    
+    color:white; 
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     
+    
+}
+
+.NavFont:hover{
+    transform: scale(1.1, 1.1); 
 }
 .weather-container {
     text-align: center;
@@ -105,7 +113,7 @@ animation: moveAttackText 3.75s;
 .create-char-container {
     display:flex;
     justify-content: center;
-    margin-left: -300px;
+    ;
     background-image: url("~/assets/images/CreateAccountBackground.png");
     background-repeat: no-repeat;
     background-size: cover;
@@ -113,4 +121,16 @@ animation: moveAttackText 3.75s;
 .characterDesriptions {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+}
+.allbuttons {
+    padding: 10px;
+    box-shadow: 3px 5px rgb(2, 2, 5);
+    margin-right: 5px;
+}
+.allbuttons:hover{
+    background-color: rgb(227, 227, 233);
+    transform: scale(1.1, 1.1);
+}
+.allinputs {
+    box-shadow: 3px 5px rgb(2, 2, 5);
 }
