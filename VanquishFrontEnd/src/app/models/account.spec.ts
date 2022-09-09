@@ -5,6 +5,6 @@ imports: [HttpClientModule]
 
 describe('Account', () => {
   it('should create an instance', () => {
-    expect(new Account(1, 'DustinJae', 'password', 'wizard', 'dallas', 20)).toBeTruthy();
+    expect(new Account(1, 'DustinJae', 'password')).toBeTruthy();
   });
 });

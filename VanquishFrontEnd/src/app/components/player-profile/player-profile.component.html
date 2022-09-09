@@ -19,8 +19,8 @@
     <div class="BasicFont">    
         <p class="p-id">User ID: </p>
         <p class="p-uName">User Name: </p>
-        <p class="p-Pass">PassWord: </p>
-        <p class="p-Zip">City: </p>
+        <p class="p-Pass">Password: </p>
+        <p class="p-City">City: </p>
         <p>Character:</p>
     </div>
 </div>
@@ -36,11 +36,12 @@
         <input type="text" id="newCity" placeholder="City"><br><br>
         <h3 class="BasicFont">Change Character</h3>
         <select name="characters">
-            <option value="Default">Default</option>
+
+            <option value="Default">No change</option>
             <option value="Paladin">Paladin</option>
-            <option value="Wizard">Wizard</option>
+            <option value="Wizard">Wizard</option>  
             <option value="Rogue">Rogue</option>
-            <option value="Warrior">Warrior</option>
+            <option value="Warrior">Warrior</option>            
         </select><br><br>
         <button type="submit" class="hover" text="Update">Update</button>      
     </form>
@@ -51,7 +52,7 @@
 <br>
 <!--Need to make image appear on right side while information stays on left side-->
 <div class="container">
-    <img [src]="ImagePath" alt="Character Choice" style="width:400px; height: 500px">
+    <img src="{{ImagePath}}" alt="Character Choice" style="width:400px; height: 500px">
 </div>
 </body>
 </html>
