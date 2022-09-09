@@ -1,4 +1,5 @@
 export class Weather {
-    constructor(public weatherMain:string, public weatherDescription:string){};
+  
+    constructor(public weatherMain:string, public weatherDescription:string, public weatherTemp:number){};
 
 }
