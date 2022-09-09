@@ -1,7 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { Account } from './account';
 
-imports: [HttpClientModule]
+[HttpClientModule]
 
 describe('Account', () => {
   it('should create an instance', () => {

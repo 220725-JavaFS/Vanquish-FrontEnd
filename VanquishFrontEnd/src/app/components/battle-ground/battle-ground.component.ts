@@ -69,6 +69,17 @@ export class BattleGroundComponent implements OnInit {
       }
   }) 
   }   
+  PhysicalAttack() {
+  
+  }
+  AgilityAttack() {
+
+  }
+  MagicAttack() {
+  
+}
+
+
 
 }
 
