@@ -1,6 +1,9 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BattleGroundComponent } from './battle-ground.component';
+
+
 
 describe('BattleGroundComponent', () => {
   let component: BattleGroundComponent;
@@ -8,6 +11,7 @@ describe('BattleGroundComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [HttpClientModule],
       declarations: [ BattleGroundComponent ]
     })
     .compileComponents();

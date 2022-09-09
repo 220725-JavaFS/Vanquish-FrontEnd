@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+
+import { AccountService } from 'src/app/services/account.service';
+
 import { Playerinfo } from 'src/app/models/playerinfo';
 import { PlayerinfoService } from 'src/app/services/playerinfo.service';
+
 
 @Component({
   selector: 'app-player-profile',
@@ -8,6 +12,14 @@ import { PlayerinfoService } from 'src/app/services/playerinfo.service';
   styleUrls: ['./player-profile.component.css']
 })
 export class PlayerProfileComponent implements OnInit {
+
+  ImagePath: string ='/assets/images/Default.png';
+
+  //constructor(private accountService:AccountService) { 
+    //switch statement or if else statement depending on credentials and database
+   // this.ImagePath = '/assets/images/Warrior.png'
+    //this.ImagePath = '/assets/images/Default.png'
+
   character:string='';
   image:string='';
   ImagePath: string='';
@@ -17,6 +29,7 @@ export class PlayerProfileComponent implements OnInit {
 
   constructor(private playerService:PlayerinfoService) { 
     this.getImage(1);
+
     
     //switch statement or if else statement depending on credentials and database
     //this.ImagePath =this.image;
@@ -54,4 +67,11 @@ export class PlayerProfileComponent implements OnInit {
 
  
 
+
+
+  private getCharacter(character:string){
+    //this.accountService.getAccountByID().getCharacter()
+  }
+
+}
 

@@ -56,26 +56,25 @@ animation: moveAttackText 3.75s;
 }
 .battle-container {
     position: relative;
-    border: 4px silver;
-        
-        animation: moveVideoText 3.75s;
+    border: 4px silver;        
+    animation: moveVideoText 3.75s;
 }
 @keyframes moveVideoText {
     from {
-        top: -100vw;
+        top: -75vh;
     }
 
     /* This sets the position of the video text to above the viewport */
     to {
-        top: 0vw;
+        top: 0vh;
     }
 }
 @keyframes moveAttackText {
     from {
-        top: +100vw;
+        top: +60vh;
     }    
     to {
-        top: 0vw;
+        top: 0vh;
     }
 }
 .health {
@@ -89,7 +88,7 @@ animation: moveAttackText 3.75s;
 
 .navbar-container {
     background-color: rgb(28, 24, 135);    
-    width: 55%;
+    width: 25%;
     padding: 20px 105px;
     border-radius: 15px 50px 30px;
 }
