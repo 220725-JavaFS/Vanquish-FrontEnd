@@ -37,15 +37,11 @@
         <h3 class="BasicFont">Change Character</h3>
         <select name="characters">
 
-            <option value="Default">Default</option>
+            <option value="Default">No change</option>
             <option value="Paladin">Paladin</option>
-            <option value="Wizard">Wizard</option>
-
-            <option *ngIf(Character[0])='Paladin'>{{Character[0]}}</option>
-            <option value="Wizard">{{Character[0]}}</option>
-
+            <option value="Wizard">Wizard</option>  
             <option value="Rogue">Rogue</option>
-            <option value="Warrior">Warrior</option>
+            <option value="Warrior">Warrior</option>            
         </select><br><br>
         <button type="submit" class="hover" text="Update">Update</button>      
     </form>
