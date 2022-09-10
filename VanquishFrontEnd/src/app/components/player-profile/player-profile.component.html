@@ -16,12 +16,13 @@
     <h1 style="color: white">Player Profile</h1>
 </div>
 <div>
-    <div class="BasicFont">    
-        <p class="p-id">User ID: </p>
-        <p class="p-uName">User Name: </p>
-        <p class="p-Pass">Password: </p>
-        <p class="p-City">City: </p>
-        <p>Character:</p>
+    <div class="BasicFont" *ngFor="let p of players"> 
+        <p class="p-id">User ID: {{p.id}}</p>
+        <p class="p-uName">User Name: {{accounts[1]}}</p>
+        <p class="p-Pass">Password: {{accounts[2]}}</p>
+        <p class="p-City">City: {{p.city}}</p>
+        <p class="p-silver">SilverCount: {{p.silver}}</p>
+        <p>Character: {{p.character}}</p>
     </div>
 </div>
 
