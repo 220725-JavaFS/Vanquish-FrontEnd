@@ -12,11 +12,11 @@ import { PlayerinfoService } from 'src/app/services/playerinfo.service';
 })
 export class PlayerProfileComponent implements OnInit {
 
-  ImagePath: string = '/assets/images/Default.png';
-  ImagePathWar: string = '/assets/images/Warrior.png'
-  ImagePathPal: string = '/assets/images/Paladin.png'
-  ImagePathWiz: string = '/assets/images/Wizard.png'
-  ImagePathRog: string = '/assets/images/Rogue.png'
+  ImagePath: string[] = ['/assets/images/Default.png','/assets/images/Warrior.png','/assets/images/Paladin.png','/assets/images/Wizard.png','/assets/images/Rogue.png'];
+  // ImagePathWar: string = '/assets/images/Warrior.png'
+  // ImagePathPal: string = '/assets/images/Paladin.png'
+  // ImagePathWiz: string = '/assets/images/Wizard.png'
+  // ImagePathRog: string = '/assets/images/Rogue.png'
 
  
 
@@ -25,7 +25,7 @@ export class PlayerProfileComponent implements OnInit {
  
   Character: string[]=[];
   
-  playerCharacter:Playerinfo[]=[];
+  playerCharacter:Playerinfo = <Playerinfo> {};
 
   constructor(private playerService:PlayerinfoService) { 
     
@@ -36,6 +36,14 @@ export class PlayerProfileComponent implements OnInit {
   
 
   ngOnInit(): void {
+  }
+
+  private getCharacterImage(id:number){
+    // this.playerService.getPlayerById(id).subscribe({
+    //   next:(data:any)=>{
+    //     this.
+    //   }
+    // })
   }
 
 
