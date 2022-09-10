@@ -18,8 +18,8 @@
 <div>
     <div class="BasicFont" *ngFor="let p of players"> 
         <p class="p-id">User ID: {{p.id}}</p>
-        <p class="p-uName">User Name: {{accounts[1]}}</p>
-        <p class="p-Pass">Password: {{accounts[2]}}</p>
+        <p class="p-uName">User Name: {{p.account.username}}</p>
+        <p class="p-Pass">Password: {{p.account.userPwd}}</p>
         <p class="p-City">City: {{p.city}}</p>
         <p class="p-silver">SilverCount: {{p.silver}}</p>
         <p>Character: {{p.character}}</p>
