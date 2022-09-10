@@ -18,10 +18,13 @@ export class PlayerProfileComponent implements OnInit {
   // ImagePathPal: string = '/assets/images/Paladin.png'
   // ImagePathWiz: string = '/assets/images/Wizard.png'
   // ImagePathRog: string = '/assets/images/Rogue.png'
+  ImagePathF: string[]=['/assets/images/Warrior.png'];
 
+  
  
 
-  character:string='';
+  character =['Default','Paladin','Warrior','Wizard','Rogue'];
+  ngOptions = this.character[0];
   image:string='';
  
   players: Playerinfo[]=[];
@@ -37,8 +40,8 @@ export class PlayerProfileComponent implements OnInit {
   
 
   ngOnInit(): void {
-    this.players=[{id:1,character: 'Warrior',city:'Houston',silver:25, account:{id:1, username:'user',userPwd:'test'}}]
-    this.accounts=[{id:1,username:'test',userPwd:'test'}]
+    this.players=[{id:1,character: 'Paladin',city:'Houston',silver:25, account:{id:1, username:'user',userPwd:'test'}}]
+    
   }
 
   private getCharacterImage(id:number){
@@ -47,6 +50,11 @@ export class PlayerProfileComponent implements OnInit {
     //     this.
     //   }
     // })
+  }
+  private getImage(){
+    // if(new Playerinfo({ this.character } = 'Warrior'){
+    //   this.ImagePath['/assets/images/Warrior.png']
+    // }
   }
 
 
