@@ -8,6 +8,9 @@ import { Account } from '../models/account';
   providedIn: 'root'
 })
 export class PlayerinfoService {
+  getPlayerById(playerId: any) {
+    throw new Error('Method not implemented.');
+  }
 
   private baseURL = 'http://localhost:8080/Webapp/accounts/'
   constructor(private httpClient: HttpClient) { }
