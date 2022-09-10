@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 body {    
-    background-color: rgb(19, 13, 145);
+    background-color: rgb(11, 7, 87);
 }
 
 .flex-containerSunny {
@@ -85,13 +85,14 @@ animation: moveAttackText 3.75s;
     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
-.navbar-container {
-    background-color: rgb(52, 46, 234);    
+.navbar-container {    
+    background-color: rgb(30, 27, 135);    
     width: 25%;
-    padding: 20px 80px;
+    padding: 10px 80px;
     border-radius: 15px 300px 30px;
     border: 1px solid;
     box-shadow: 5px 10px rgb(2, 2, 7);
+    
     
 }
 .hover:hover {
@@ -142,4 +143,7 @@ animation: moveAttackText 3.75s;
     background-image: url("~/assets/images/loginbackground.png");
     background-repeat: no-repeat;
     background-size: cover;
+    border: 6px silver solid;
+    box-shadow: 5px 10px rgb(2, 2, 7);
 }
+
