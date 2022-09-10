@@ -113,7 +113,7 @@ animation: moveAttackText 3.75s;
 .create-char-container {
     display:flex;
     justify-content: center;
-    ;
+    border: 6px silver solid;
     background-image: url("~/assets/images/CreateAccountBackground.png");
     background-repeat: no-repeat;
     background-size: cover;
@@ -132,5 +132,14 @@ animation: moveAttackText 3.75s;
     transform: scale(1.1, 1.1);
 }
 .allinputs {
+    padding:7px;
     box-shadow: 3px 5px rgb(2, 2, 5);
+}
+.allinputs:hover {
+    transform: scale(1.2, 1.2);
+}
+.loginbackground {
+    background-image: url("~/assets/images/loginbackground.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
