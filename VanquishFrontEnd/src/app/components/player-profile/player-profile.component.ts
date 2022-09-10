@@ -3,6 +3,7 @@ import { AccountService } from 'src/app/services/account.service';
 
 import { Playerinfo } from 'src/app/models/playerinfo';
 import { PlayerinfoService } from 'src/app/services/playerinfo.service';
+import { Account } from 'src/app/models/account';
 
 
 @Component({
@@ -23,19 +24,21 @@ export class PlayerProfileComponent implements OnInit {
   character:string='';
   image:string='';
  
-  Character: string[]=[];
+  players: Playerinfo[]=[];
   
-  playerCharacter:Playerinfo = <Playerinfo> {};
+ accounts:Account[]=[];
 
   constructor(private playerService:PlayerinfoService) { 
     
-
+    
     
     
   }
   
 
   ngOnInit(): void {
+    this.players=[{id:1,character: 'Warrior',city:'Houston',silver:25}]
+    this.accounts=[{id:1,username:'test',userPwd:'test'}]
   }
 
   private getCharacterImage(id:number){
