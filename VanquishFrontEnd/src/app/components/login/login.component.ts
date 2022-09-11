@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Account } from 'src/app/models/account';
 import { LoginService } from 'src/app/services/login.service';
@@ -14,6 +14,8 @@ export class LoginComponent implements OnInit {
   acc1 = new Account(1,'user1','123','Dallas', "Wizard", 100);
   username: string = '';
   password: string = '';
+  $isLoggedIn = new EventEmitter();
+  user: LoggedUserEvent = {user: "" , city: "", character: "", silver: 0};
   constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit(): void {
@@ -30,10 +32,24 @@ export class LoginComponent implements OnInit {
         this.account=data;
         if(this.account != null){
           console.log(data)
+          this.user.user = data.username;
+          this.user.city = data.city;
+          this.user.character = data.character;
+          this.user.silver = data.silver;
+          
+          this.$isLoggedIn.emit(this.user);
+          console.log(this.user);
           this.router.navigate(['playerProfile']);
         }
         
       }
     })
   }
+}
+
+export interface LoggedUserEvent{
+    user: string;
+    city: string;
+    character: string;
+    silver: number;
 }
