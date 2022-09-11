@@ -29,6 +29,8 @@ export class BattleGroundComponent implements OnInit {
   weather:Weather = <Weather>{};
   weatherData: any;
   buttonclicked: boolean = false;
+  win: boolean = false;
+  loss: boolean = false;
   accounts: Account[] = [];
 
   pUser: string = 'test';
@@ -162,12 +164,12 @@ export class BattleGroundComponent implements OnInit {
     this.playerHealth = health;
     this.mDamage = Damage;
     this.pDamage = Playerdamage;
-    if (this.monsterHealth <= 0) {
-        //Battletext = You win!
+    if (this.monsterHealth <= 0 && this.playerHealth >0) {
+      this.win = true;
         //add 1 silver to database
         
-    } else if (this.playerHealth <= 0) {
-      //You Lose!
+    } else if (this.playerHealth <= 0 && this.monsterHealth>0) {
+      this.loss = true;
        
       
     }
@@ -185,12 +187,11 @@ export class BattleGroundComponent implements OnInit {
     this.mDamage = Damage;
     this.pDamage = Playerdamage;
     if (this.monsterHealth <= 0) {
-      //Battletext = You win!
+      this.win = true;
       //add 1 silver to database
-      //inserts button play again(relaunch battlepage)
+      
     } else if (this.playerHealth <= 0) {
-      //Battletext = You Lose! Try again
-      //relaunches battlepage
+      this.loss = true;      
     }
   }
   MagicAttack(health: number, monsterhealth: number) {
@@ -206,12 +207,11 @@ export class BattleGroundComponent implements OnInit {
     this.mDamage = Damage;
     this.pDamage = Playerdamage;
     if (this.monsterHealth <= 0) {
-      //Battletext = You win!
+      this.win = true;
       //add 1 silver to database
-      //inserts button play again(relaunch battlepage)
+      
     } else if (this.playerHealth <= 0) {
-      //Battletext = You Lose! Try again
-      //relaunches battlepage
+      this.loss = true;      
     }
   }
   reload() {

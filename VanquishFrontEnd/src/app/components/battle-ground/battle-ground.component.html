@@ -18,6 +18,8 @@
             <div *ngIf="buttonclicked == true"><br><br><br>
                 <h3 class="battleText" id="battleText" >You hit the Silver Monster for {{pDamage}} damage. </h3>
                 <h3 class="battleText" id="battleText">The Monster hit you back for {{mDamage}} damage.</h3>
+                <h3 class="battleText" *ngIf="win == true" id="battleText">You Win! 1 Silver is added to your account.</h3>
+                <h3 class="battleText" *ngIf="loss == true" id="battleText">You Lose! The kingdom mourns your death.</h3>
                 <button class="allbuttons" *ngIf="playerHealth <=0 || monsterHealth <=0" (click)="reload()" >Play again!</button>
             </div>  
             <div>
