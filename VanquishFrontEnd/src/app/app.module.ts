@@ -13,6 +13,7 @@ import { PlayerProfileComponent } from './components/player-profile/player-profi
 import { BattleGroundComponent } from './components/battle-ground/battle-ground.component';
 import { PlayerInfoPipe } from './pipes/player-info.pipe';
 import { AccountListComponent } from './components/account-list/account-list.component';
+import { RedirectComponent } from './components/redirect/redirect.component';
 
 
 @NgModule({
@@ -25,7 +26,7 @@ import { AccountListComponent } from './components/account-list/account-list.com
     UpdatePlayerComponent,
     PlayerProfileComponent,
     BattleGroundComponent, 
-    PlayerInfoPipe, AccountListComponent
+    PlayerInfoPipe, AccountListComponent, RedirectComponent
   ],
   imports: [
     BrowserModule,

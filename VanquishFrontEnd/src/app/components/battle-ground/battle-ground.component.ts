@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Account } from 'src/app/models/account';
 import { Weather } from 'src/app/models/weather';
 import { WeatherCoord } from 'src/app/models/weather-coord';
+import { LoginService } from 'src/app/services/login.service';
 import { WeatherService } from 'src/app/services/weather.service';
 //import { Account } from '~/models/account';
 
@@ -13,10 +16,10 @@ export class BattleGroundComponent implements OnInit {
   tempClass:string = "Warrior"
   playerHealth: number = 150;
   monsterHealth: number = 150;
-  physMod: number = 1;
+  physMod: number = 0;
   agilMod: number = 0;
   magicMod: number = 0;
-  weatherMod: number = 1;  
+  weatherMod: number = 0;  
   mDamage: number = 0;
   pDamage: number = 0;
   sunny: boolean = false;
@@ -26,12 +29,19 @@ export class BattleGroundComponent implements OnInit {
   weather:Weather = <Weather>{};
   weatherData: any;
   buttonclicked: boolean = false;
-  constructor(private weatherService:WeatherService) {  }
+  accounts: Account[] = [];
+
+  pUser: string = 'test';
+  pCity: string = '';
+  pCharacter: string = '';
+  pSilver: number = 0;
+  constructor(private weatherService: WeatherService, private loginService: LoginService, private router: Router) {  }
 
   ngOnInit(): void{
-    //getaccount from login
-    this.getWeatherByCity("New York");//input user.city    
-    this.setWeatherMod(); //input user.character
+    
+    this.profile();
+    this.getWeatherByCity(this.pCity);//input user.city    
+    this.setWeatherMod(this.pCharacter); //input user.character
     
     
   }
@@ -82,8 +92,8 @@ export class BattleGroundComponent implements OnInit {
       }
   }) 
   }   
-  setWeatherMod() { //input user.character
-    switch (this.tempClass) { //change to user.character
+  setWeatherMod(theCharacter:string) { //input user.character
+    switch (theCharacter) { //change to user.character
       case "Warrior":
         this.physMod = 1.5;
         this.agilMod = 1.2;
@@ -144,7 +154,7 @@ export class BattleGroundComponent implements OnInit {
     this.buttonclicked = true;
     const Damage = this.randomRoll(); 
     const PDamage = this.randomRoll();
-    this.setWeatherMod();
+    this.setWeatherMod(this.pCharacter);
     const Playerdamage = (PDamage * this.physMod) * this.weatherMod;
     monsterhealth = monsterhealth - Math.round(Playerdamage);
     health = health - Damage;
@@ -157,7 +167,7 @@ export class BattleGroundComponent implements OnInit {
         //add 1 silver to database
         
     } else if (this.playerHealth <= 0) {
-      
+      //You Lose!
        
       
     }
@@ -166,7 +176,7 @@ export class BattleGroundComponent implements OnInit {
     this.buttonclicked = true;
     const Damage = this.randomRoll();
     const PDamage = this.randomRoll();
-    this.setWeatherMod();
+    this.setWeatherMod(this.pCharacter);
     const Playerdamage = (PDamage * this.agilMod) * this.weatherMod;
     monsterhealth = monsterhealth - Math.round(Playerdamage);
     health = health - Damage;
@@ -187,7 +197,7 @@ export class BattleGroundComponent implements OnInit {
     this.buttonclicked = true;
     const Damage = this.randomRoll();
     const PDamage = this.randomRoll();
-    this.setWeatherMod();
+    this.setWeatherMod(this.pCharacter);
     const Playerdamage = (PDamage * this.magicMod) * this.weatherMod;
     monsterhealth = monsterhealth - Math.round(Playerdamage);
     health = health - Damage;
@@ -205,9 +215,14 @@ export class BattleGroundComponent implements OnInit {
     }
   }
   reload() {
-    location.reload();
+    this.router.navigate(['redirect']);
 }
-
+  profile() {
+    this.pUser = this.loginService.user.user;
+    this.pCharacter = this.loginService.user.character;
+    this.pCity = this.loginService.user.city;
+    this.pSilver = this.loginService.user.silver;
+  }
 
 }
 

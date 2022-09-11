@@ -7,6 +7,7 @@ import { UpdatePlayerComponent } from './components/update-player/update-player.
 import { PlayerProfileComponent } from './components/player-profile/player-profile.component';
 import { BattleGroundComponent } from './components/battle-ground/battle-ground.component';
 import { AccountListComponent } from './components/account-list/account-list.component';
+import { RedirectComponent } from './components/redirect/redirect.component';
 
 
 const routes: Routes = [
@@ -33,6 +34,11 @@ const routes: Routes = [
   {
     path: "leaderboard",
     component: AccountListComponent 
+  },
+  {
+    path: "redirect",
+    component: RedirectComponent
+
   },
   {
     path: "",
