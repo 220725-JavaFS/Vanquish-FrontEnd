@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Playerinfo } from 'src/app/models/playerinfo';
-import { PlayerinfoService } from 'src/app/services/playerinfo.service';
 import { Account } from 'src/app/models/account';
 import { NgSwitchCase } from '@angular/common';
 import { LoginService } from 'src/app/services/login.service';
@@ -21,13 +19,15 @@ export class PlayerProfileComponent implements OnInit {
   ngOptions = this.character[0];
   
  
-  players: Playerinfo[]=[];
+
+
   accounts:Account[]=[];
 
   pUser:string='test';
   pCity:string='';
   pCharacter:string='';
   pSilver:number=0;
+
 
   constructor(private loginService: LoginService) { }
 

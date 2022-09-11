@@ -5,6 +5,6 @@ imports: [HttpClientModule]
 
 describe('Weather', () => {
   it('should create an instance', () => {
-    expect(new Weather('clear', 'sunny')).toBeTruthy();
+    expect(new Weather('clear', 'sunny', 80)).toBeTruthy();
   });
 });
