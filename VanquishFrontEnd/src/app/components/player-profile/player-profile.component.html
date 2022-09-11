@@ -14,20 +14,18 @@
     <h1 style="color: white">Player Profile</h1>
 </div>
 <div class="playerContainer">
-    <div class="BasicFont" *ngFor="let p of players"> 
+    <div class="BasicFont"> 
         <div>
-        <p class="p-id">User ID: {{user.user}}</p>
-        <p class="p-uName">User Name: {{p.account.username}}</p>
-        <p class="p-Pass">Password: {{p.account.userPwd}}</p>
-        <p class="p-City">City: {{p.city}}</p>
-        <p class="p-silver">SilverCount: {{p.silver}}</p>
-        <p class="p-character">Character: {{p.character}}</p>
+        <p class="users-user">UserName: : {{pUser}}</p>
+        <p class="users-city">City: {{pCity}}</p>
+        <p class="users-silver">SilverCount: {{pSilver}}</p>
+        <p class="users-character">Character: {{pCharacter}}</p>
         </div>
         <div>    
-         <img *ngIf="p.character=='Warrior'" src="{{ImagePath[1]}}" alt="Character Choice" style="width:400px; height: 500px">
-         <img *ngIf="p.character=='Paladin'" src="{{ImagePath[2]}}" alt="Character Choice" style="width:400px; height: 500px">
-         <img *ngIf="p.character=='Rogue'" src="{{ImagePath[4]}}" alt="Character Choice" style="width:400px; height: 600px">
-         <img *ngIf="p.character=='Wizard'" src="{{ImagePath[3]}}" alt="Character Choice" style="width:400px; height: 500px">
+         <img *ngIf="pCharacter=='Warrior'" src="{{ImagePath[1]}}" alt="Character Choice" style="width:400px; height: 500px">
+         <img *ngIf="pCharacter=='Paladin'" src="{{ImagePath[2]}}" alt="Character Choice" style="width:400px; height: 500px">
+         <img *ngIf="pCharacter=='Rogue'" src="{{ImagePath[4]}}" alt="Character Choice" style="width:400px; height: 600px">
+         <img *ngIf="pCharacter=='Wizard'" src="{{ImagePath[3]}}" alt="Character Choice" style="width:400px; height: 500px">
         </div>
                 <section>
                     <article>

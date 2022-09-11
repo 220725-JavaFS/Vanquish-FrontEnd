@@ -9,9 +9,11 @@ import { Account } from '../models/account';
   providedIn: 'root'
 })
 export class LoginService {
+  [x: string]: any;
+  
 
   private baseUrl = "http://localhost:8084/data/login/";
-
+  
   account:Account = <Account>{};
   $isLoggedIn = new EventEmitter();
   
@@ -44,4 +46,9 @@ export class LoginService {
       }
     })
   }
+  // getProfile(user:Account):Observable<Account> {
+  //   return this.httpClient.get<Account>('http://localhost:8084/data/profile/'+user)
+  // }
+
+
 }
