@@ -9,7 +9,10 @@
         }"> 
             <div class="characterContainer">
                 <H2 class="health">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Health : {{playerHealth}} </H2>
-                <img src="/assets/images/Paladin.png" alt="Paladin" sizes="width=287" height="500"><br>
+                <img *ngIf="pCharacter=='Wizard'" src="/assets/images/Wizard.png" alt="Warrior" sizes="width=287" height="500">
+                <img *ngIf="pCharacter=='Rogue'" src="/assets/images/Rogue.png" alt="Warrior" sizes="width=287" height="500">
+                <img *ngIf="pCharacter=='Paladin'" src="/assets/images/Paladin.png" alt="Warrior" sizes="width=287" height="500">
+                <img *ngIf="pCharacter=='Warrior'" src="/assets/images/Warrior.png" alt="Warrior" sizes="width=287" height="500"><br>
                 
             </div>
             <div *ngIf="buttonclicked == true"><br><br><br>
