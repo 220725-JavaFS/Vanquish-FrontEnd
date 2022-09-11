@@ -12,11 +12,4 @@ export class NavBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
-  fight() {
-    
-  }
-  loadProfile() {
-    
-  }
 }
