@@ -17,24 +17,34 @@ export class PlayerProfileComponent implements OnInit {
 
   character =['Default','Paladin','Warrior','Wizard','Rogue'];
   ngOptions = this.character[0];
-  image:string='';
+  
  
-  players: Account[]=[];
 
-  user: LoggedUserEvent = {user: "" , city: "", character: "", silver: 0};
+
+  accounts:Account[]=[];
+
+  pUser:string='test';
+  pCity:string='';
+  pCharacter:string='';
+  pSilver:number=0;
+
+
   constructor(private loginService: LoginService) { }
 
   ngOnInit(): void {
-    //this.players=[{id:1,character: 'Paladin',city:'Houston',silver:25, account:{id:1, username:'user',userPwd:'test', city:'Dallas',character:'Wizard', silver: 0}}]
-    
+  this.profile();
     //TODO: use this data to show in player profile
-    this.loginService.$isLoggedIn.subscribe((data) =>{
-      console.log("I got this data in PlayerProfile component", data);
-      this.user = data;
-      console.log(this.user.character);
-    })
+  }
+  profile(){
+    this.pUser=this.loginService.user.user;
+    this.pCharacter=this.loginService.user.character;
+    this.pCity=this.loginService.user.city;
+    this.pSilver=this.loginService.user.silver; 
   }
 }
+  
+  
+
   
 
 
