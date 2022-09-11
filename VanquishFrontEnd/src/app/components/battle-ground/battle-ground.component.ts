@@ -10,7 +10,15 @@ import { WeatherService } from 'src/app/services/weather.service';
   styleUrls: ['./battle-ground.component.css']
 })
 export class BattleGroundComponent implements OnInit {
-
+  tempClass:string = "Warrior"
+  playerHealth: number = 150;
+  monsterHealth: number = 150;
+  physMod: number = 1;
+  agilMod: number = 0;
+  magicMod: number = 0;
+  weatherMod: number = 1;  
+  damage: number = 0;
+  
   sunny: boolean = false;
   cloudy: boolean = false;
   rainy: boolean = false;
@@ -21,6 +29,9 @@ export class BattleGroundComponent implements OnInit {
 
   ngOnInit(): void{
     this.getWeatherByCity("Dallas");
+    //getaccount from login
+    this.setWeatherMod(); //input user.character
+    
     
   }
 
@@ -69,16 +80,123 @@ export class BattleGroundComponent implements OnInit {
       }
   }) 
   }   
-  PhysicalAttack() {
-  
-  }
-  AgilityAttack() {
+  setWeatherMod() { //input user.character
+    switch (this.tempClass) { //change to user.character
+      case "Warrior":
+        this.physMod = 1.5;
+        this.agilMod = 1.2;
+        this.magicMod = 0.2;
+        if (this.sunny == true) {
+          this.weatherMod = 1.5;
+        } else if (this.rainy == true) {
+          this.weatherMod=0.8
+        } else if (this.cloudy == true) {
+          this.weatherMod=1.0
+        }
+        
+        break;
+      case "Wizard":
+        this.physMod = 0.5;
+        this.agilMod = 0.4;
+        this.magicMod = 1.5;
+        if (this.sunny == true) {
+          this.weatherMod = 1;
+        } else if (this.rainy == true) {
+          this.weatherMod = 1.5
+        } else if (this.cloudy == true) {
+          this.weatherMod = 1.3
+        }        
+        break;
+      case "Rogue":
+        this.physMod = 1.2;
+        this.agilMod = 1.5;
+        this.magicMod = 0.5;
+        if (this.sunny == true) {
+          this.weatherMod = 0.7;
+        } else if (this.rainy == true) {
+          this.weatherMod = 1.2
+        } else if (this.cloudy == true) {
+          this.weatherMod = 2.0
+        }
+        
+        break;
+      case "Paladin":
+        this.physMod = 1.2;
+        this.agilMod = 0.8;
+        this.magicMod = 1.2;
+        this.weatherMod = 1.0;
+        break;
+    
+      default:
+        break;
+    }
+      
+    }
 
+  randomRoll() {
+    return Math.floor(Math.random() * 21);
   }
-  MagicAttack() {
   
+
+  PhysicalAttack(health: number, monsterhealth: number) {   
+    
+    const Damage = this.randomRoll(); 
+    const PDamage = this.randomRoll();
+    this.setWeatherMod();
+    const Playerdamage = (PDamage * this.physMod) * this.weatherMod;
+    monsterhealth = monsterhealth - Math.round(Playerdamage);
+    health = health - Damage;
+    this.monsterHealth = monsterhealth;
+    this.playerHealth = health;
+    if (this.monsterHealth <= 0) {
+        //Battletext = You win!
+        //add 1 silver to database
+        //inserts button play again(relaunch battlepage)
+    } else if (this.playerHealth <= 0) {
+      //Battletext = You Lose! Try again
+       //inserts button play again(relaunch battlepage)
+      
+    }
+  }
+  AgilityAttack(health: number, monsterhealth: number) {
+    const Damage = this.randomRoll();
+    const PDamage = this.randomRoll();
+    this.setWeatherMod();
+    const Playerdamage = (PDamage * this.agilMod) * this.weatherMod;
+    monsterhealth = monsterhealth - Math.round(Playerdamage);
+    health = health - Damage;
+    this.monsterHealth = monsterhealth;
+    this.playerHealth = health;
+    if (this.monsterHealth <= 0) {
+      //Battletext = You win!
+      //add 1 silver to database
+      //inserts button play again(relaunch battlepage)
+    } else if (this.playerHealth <= 0) {
+      //Battletext = You Lose! Try again
+      //relaunches battlepage
+    }
+  }
+  MagicAttack(health: number, monsterhealth: number) {
+    const Damage = this.randomRoll();
+    const PDamage = this.randomRoll();
+    this.setWeatherMod();
+    const Playerdamage = (PDamage * this.magicMod) * this.weatherMod;
+    monsterhealth = monsterhealth - Math.round(Playerdamage);
+    health = health - Damage;
+    this.monsterHealth = monsterhealth;
+    this.playerHealth = health;
+    if (this.monsterHealth <= 0) {
+      //Battletext = You win!
+      //add 1 silver to database
+      //inserts button play again(relaunch battlepage)
+    } else if (this.playerHealth <= 0) {
+      //Battletext = You Lose! Try again
+      //relaunches battlepage
+    }
+  }
+  reload() {
+    location.reload();
 }
-
 
 
 }

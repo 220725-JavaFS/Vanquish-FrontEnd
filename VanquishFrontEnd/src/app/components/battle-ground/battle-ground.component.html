@@ -8,15 +8,17 @@
         
         }"> 
             <div class="characterContainer">
-                <H2 class="health">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Health : (PLAYERHEALTH) </H2>
+                <H2 class="health">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Health : {{playerHealth}} </H2>
                 <img src="/assets/images/Paladin.png" alt="Paladin" sizes="width=287" height="500"><br>
                 
             </div>
             <div><br><br><br>
-                <h3 class="battleText">Placeholder text where the battle log goes</h3>
+                <h3 class="battleText" id="battleText" >You hit the Silver Monster for {{damage}} damage. </h3>
+                <h3 class="battleText" id="battleText">The Monster hit you back for {{damage}} damage.</h3>
+                <button class="allbuttons" *ngIf="playerHealth <=0 || monsterHealth <=0" (click)="reload()" >Play again!</button>
             </div>  
             <div>
-                <H2 class="health">Health : (MONSTERHEALTH) </H2>
+                <H2 class="health">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Health : {{monsterHealth}} </H2>
                 <img src="/assets/images/Werewolf.png" alt="Werewolf" sizes="width=287" height="500">
             </div>
         </div>
@@ -26,9 +28,9 @@
 <div class="attack-animate">
     <div class="attackmove-background">
         <div class="center">    
-            <button class="allbuttons" onclick="PhysicalAttack()">Physical Attack</button><br><br>
-            <button class="allbuttons" onclick="AgilityAttack()">Agility Attack</button><br><br>
-            <button class="allbuttons" onclick="MagicAttack()">Magic Attack</button>
+            <button class="allbuttons" (click)="PhysicalAttack(playerHealth, monsterHealth)">Physical Attack</button><br><br>
+            <button class="allbuttons" (click)="AgilityAttack(playerHealth, monsterHealth)">Agility Attack</button><br><br>
+            <button class="allbuttons" (click)="MagicAttack(playerHealth, monsterHealth)">Magic Attack</button>
         </div>        
     </div>
     <div class="weather-container">
