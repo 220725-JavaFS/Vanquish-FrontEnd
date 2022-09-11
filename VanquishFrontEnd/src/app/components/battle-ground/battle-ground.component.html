@@ -12,9 +12,9 @@
                 <img src="/assets/images/Paladin.png" alt="Paladin" sizes="width=287" height="500"><br>
                 
             </div>
-            <div><br><br><br>
-                <h3 class="battleText" id="battleText" >You hit the Silver Monster for {{damage}} damage. </h3>
-                <h3 class="battleText" id="battleText">The Monster hit you back for {{damage}} damage.</h3>
+            <div *ngIf="buttonclicked == true"><br><br><br>
+                <h3 class="battleText" id="battleText" >You hit the Silver Monster for {{pDamage}} damage. </h3>
+                <h3 class="battleText" id="battleText">The Monster hit you back for {{mDamage}} damage.</h3>
                 <button class="allbuttons" *ngIf="playerHealth <=0 || monsterHealth <=0" (click)="reload()" >Play again!</button>
             </div>  
             <div>
@@ -28,9 +28,9 @@
 <div class="attack-animate">
     <div class="attackmove-background">
         <div class="center">    
-            <button class="allbuttons" (click)="PhysicalAttack(playerHealth, monsterHealth)">Physical Attack</button><br><br>
-            <button class="allbuttons" (click)="AgilityAttack(playerHealth, monsterHealth)">Agility Attack</button><br><br>
-            <button class="allbuttons" (click)="MagicAttack(playerHealth, monsterHealth)">Magic Attack</button>
+            <button class="allbuttons" *ngIf="playerHealth >0 && monsterHealth >0" id="attackbutton" (click)="PhysicalAttack(playerHealth, monsterHealth)">Physical Attack</button><br><br>
+            <button class="allbuttons" *ngIf="playerHealth >0 && monsterHealth >0" id="attackbutton" (click)="AgilityAttack(playerHealth, monsterHealth)">Agility Attack</button><br><br>
+            <button class="allbuttons" *ngIf="playerHealth >0 && monsterHealth >0" id="attackbutton" (click)="MagicAttack(playerHealth, monsterHealth)">Magic Attack</button>
         </div>        
     </div>
     <div class="weather-container">

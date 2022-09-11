@@ -17,19 +17,20 @@ export class BattleGroundComponent implements OnInit {
   agilMod: number = 0;
   magicMod: number = 0;
   weatherMod: number = 1;  
-  damage: number = 0;
-  
+  mDamage: number = 0;
+  pDamage: number = 0;
   sunny: boolean = false;
   cloudy: boolean = false;
   rainy: boolean = false;
   weatherCoord:WeatherCoord[]=[];
   weather:Weather = <Weather>{};
-  weatherData:any;
+  weatherData: any;
+  buttonclicked: boolean = false;
   constructor(private weatherService:WeatherService) {  }
 
   ngOnInit(): void{
-    this.getWeatherByCity("Dallas");
     //getaccount from login
+    this.getWeatherByCity("New York");//input user.city    
     this.setWeatherMod(); //input user.character
     
     
@@ -71,6 +72,7 @@ export class BattleGroundComponent implements OnInit {
         } else if (            
           this.weather.weatherMain == 'Rain' ||
           this.weather.weatherMain == 'Drizzle' ||
+          this.weather.weatherMain == 'Mist' ||
           this.weather.weatherMain == 'Thunderstorm' )
         {
               this.rainy = true;
@@ -139,7 +141,7 @@ export class BattleGroundComponent implements OnInit {
   
 
   PhysicalAttack(health: number, monsterhealth: number) {   
-    
+    this.buttonclicked = true;
     const Damage = this.randomRoll(); 
     const PDamage = this.randomRoll();
     this.setWeatherMod();
@@ -148,17 +150,20 @@ export class BattleGroundComponent implements OnInit {
     health = health - Damage;
     this.monsterHealth = monsterhealth;
     this.playerHealth = health;
+    this.mDamage = Damage;
+    this.pDamage = Playerdamage;
     if (this.monsterHealth <= 0) {
         //Battletext = You win!
         //add 1 silver to database
-        //inserts button play again(relaunch battlepage)
+        
     } else if (this.playerHealth <= 0) {
-      //Battletext = You Lose! Try again
-       //inserts button play again(relaunch battlepage)
+      
+       
       
     }
   }
   AgilityAttack(health: number, monsterhealth: number) {
+    this.buttonclicked = true;
     const Damage = this.randomRoll();
     const PDamage = this.randomRoll();
     this.setWeatherMod();
@@ -167,6 +172,8 @@ export class BattleGroundComponent implements OnInit {
     health = health - Damage;
     this.monsterHealth = monsterhealth;
     this.playerHealth = health;
+    this.mDamage = Damage;
+    this.pDamage = Playerdamage;
     if (this.monsterHealth <= 0) {
       //Battletext = You win!
       //add 1 silver to database
@@ -177,6 +184,7 @@ export class BattleGroundComponent implements OnInit {
     }
   }
   MagicAttack(health: number, monsterhealth: number) {
+    this.buttonclicked = true;
     const Damage = this.randomRoll();
     const PDamage = this.randomRoll();
     this.setWeatherMod();
@@ -185,6 +193,8 @@ export class BattleGroundComponent implements OnInit {
     health = health - Damage;
     this.monsterHealth = monsterhealth;
     this.playerHealth = health;
+    this.mDamage = Damage;
+    this.pDamage = Playerdamage;
     if (this.monsterHealth <= 0) {
       //Battletext = You win!
       //add 1 silver to database
