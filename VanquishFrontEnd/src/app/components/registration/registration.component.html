@@ -3,17 +3,17 @@
     <div class="centerDiv">
         <h1 class="BasicFont">Create an account!</h1>
         <form id = "createAccount">
-            <input type="text" class="allinputs" id="createaccountform1" placeholder="User name"><br><br>
-            <input type="text" class="allinputs" id="createaccountform2" placeholder="Password"><br><br>
-            <input type="text" class="allinputs" id="createaccountform3" placeholder="City"><br><br>  
+            <input type="text"  name="loginUserName" [(ngModel)]="username" class="form-control" class="allinputs" id="createaccountform1"  placeholder="User name"><br><br>
+            <input type="text" name="loginPassword" [(ngModel)]="password" class="form-control" class="allinputs" id="createaccountform2" placeholder="Password"><br><br>
+            <input type="text" name="loginCity" [(ngModel)]="city" class="form-control" class="allinputs" id="createaccountform3" placeholder="City"><br><br>  
             <label for="characters" class="BasicFont">Choose a Character</label><br>
-            <select name="characters" class="allbuttons">
+            <select name="character" [(ngModel)]="character" class="form-control" class="allbuttons">
                 <option value="Paladin">Paladin</option>
                 <option value="Wizard">Wizard</option>
                 <option value="Rogue">Rogue</option>
                 <option value="Warrior">Warrior</option>                
             </select><br> <br>
-            <button type="submit" class="allbuttons" onclick="createAccount()" text="Create">Create</button>
+            <button type="submit" class="allbuttons" (click)="createAccount()" text="Create">Create</button>
         </form><br><br>
     </div>
     <div class="create-char-container">                       
