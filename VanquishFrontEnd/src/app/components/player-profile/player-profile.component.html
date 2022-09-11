@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html>
-   
-
 <body>
     <style>
         article {
-  float: right;
+  float: left;
   padding: 20px;
   width: 50%;
   background-color: dark blue;
@@ -15,9 +13,9 @@
 <div >
     <h1 style="color: white">Player Profile</h1>
 </div>
-<div>
+<div class="playerContainer">
     <div class="BasicFont" *ngFor="let p of players"> 
-        <div id="PlayerInfo">
+        <div>
         <p class="p-id">User ID: {{p.id}}</p>
         <p class="p-uName">User Name: {{p.account.username}}</p>
         <p class="p-Pass">Password: {{p.account.userPwd}}</p>
@@ -25,55 +23,33 @@
         <p class="p-silver">SilverCount: {{p.silver}}</p>
         <p class="p-character">Character: {{p.character}}</p>
         </div>
-        <div id="CharacterImage">    
+        <div>    
          <img *ngIf="p.character=='Warrior'" src="{{ImagePath[1]}}" alt="Character Choice" style="width:400px; height: 500px">
          <img *ngIf="p.character=='Paladin'" src="{{ImagePath[2]}}" alt="Character Choice" style="width:400px; height: 500px">
          <img *ngIf="p.character=='Rogue'" src="{{ImagePath[4]}}" alt="Character Choice" style="width:400px; height: 600px">
          <img *ngIf="p.character=='Wizard'" src="{{ImagePath[3]}}" alt="Character Choice" style="width:400px; height: 500px">
         </div>
-    </div>
-</div>
-
-<div class="container">
-    <section>
-        <article>
-            <!--Need to adjust layout where new changes is next to current information-->
-    <h3 class="BasicFont">If You Would Like to Change Your Information, Please Input New Data Below.</h3>
-    <form>        
-        <input type="text" class="allinputs" id="newuName" placeholder="User Name"><br><br>
-        <input type="text" class="allinputs" id="newuPass" placeholder="Password"><br><br>
-        <input type="text" class="allinputs" id="newCity" placeholder="City"><br><br>
-        <h3 class="BasicFont">Change Character</h3>
-        <select id="DropdownOptions" class="allbuttons" >
-            <option
-              *ngFor="let c of character"
-              [selected]="c === ngOptions"
-              [value]="c"
-            >
-              {{ c }}
-             
-            </option>
-            <img *ngIf="ngOptions[0]=='Default'" src="{{ImagePath[0]}}">
-          </select>
-       
-        <!-- <select name="characters" class="allbuttons">
-            <option value="Default">Default</option>
-            <option value="Paladin">Paladin</option>
-            <option value="Wizard">Wizard</option>  
-            <option value="Rogue">Rogue</option>
-            <option value="Warrior">Warrior</option>        
-        </select><br><br> -->
-        <button type="submit" class="allbuttons" text="Update">Update</button> 
-       
-    </form>
-</article>
-</section>
-</div>
-<br>
-<br>
-<!--Need to make image appear on right side while information stays on left side-->
-<div class="container">
-    <!-- <img src="{{ImagePath[2]}}" alt="Character Choice" style="width:400px; height: 500px"> -->
-</div>
+                <section>
+                    <article>
+                        <!--Need to adjust layout where new changes is next to current information-->
+                <h3 class="BasicFont">If You Would Like to Change Your Information, Please Input New Data Below.</h3>
+                <form>        
+                    <input type="text" class="allinputs" id="newuName" placeholder="User Name"><br><br>
+                    <input type="text" class="allinputs" id="newuPass" placeholder="Password"><br><br>
+                    <input type="text" class="allinputs" id="newCity" placeholder="City"><br><br>
+                    <h3 class="BasicFont">Change Character</h3>
+                    <select name="characters" class="allbuttons">
+                        <option value="Default">Default</option>
+                        <option value="Paladin">Paladin</option>
+                        <option value="Wizard">Wizard</option>  
+                        <option value="Rogue">Rogue</option>
+                        <option value="Warrior">Warrior</option>        
+                    </select><br><br>
+                    <button type="submit" class="allbuttons" text="Update">Update</button> 
+                </form>
+            </article>
+            </section>
+            </div>
+        </div>
 </body>
 </html>
