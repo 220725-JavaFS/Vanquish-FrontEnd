@@ -32,7 +32,7 @@ export class PlayerProfileComponent implements OnInit {
   
 
   ngOnInit(): void {
-    this.players=[{id:1,character: 'Paladin',city:'Houston',silver:25, account:{id:1, username:'user',userPwd:'test'}}]
+    this.players=[{id:1,character: 'Paladin',city:'Houston',silver:25, account:{id:1, username:'user',userPwd:'test',city:'Dallas', character:'Wizard', silver: 100}}]
    // this.getPlayer(1);
   }
 
