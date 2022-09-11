@@ -75,7 +75,7 @@ animation: moveAttackText 3.75s;
 .battle-container {
     position: relative;
     border: 6px silver solid;        
-    animation: moveVideoText 3.75s;
+    
     box-shadow: 5px 10px rgb(2, 2, 7);
 }
 @keyframes moveVideoText {
