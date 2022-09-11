@@ -5,6 +5,6 @@ import { Account } from './account';
 
 describe('Account', () => {
   it('should create an instance', () => {
-    expect(new Account(1, 'DustinJae', 'password')).toBeTruthy();
+    expect(new Account(1, 'DustinJae', 'password', 'Dallas', 'Wizard', 100)).toBeTruthy();
   });
 });

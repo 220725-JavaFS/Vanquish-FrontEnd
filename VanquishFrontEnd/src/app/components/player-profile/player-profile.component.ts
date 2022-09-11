@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { AccountService } from 'src/app/services/account.service';
 
 import { Playerinfo } from 'src/app/models/playerinfo';
 import { PlayerinfoService } from 'src/app/services/playerinfo.service';
 import { Account } from 'src/app/models/account';
 import { NgSwitchCase } from '@angular/common';
+import { LoginService } from 'src/app/services/login.service';
+import { LoggedUserEvent, LoginComponent } from '../login/login.component';
 
 
 @Component({
@@ -21,30 +22,20 @@ export class PlayerProfileComponent implements OnInit {
   image:string='';
  
   players: Playerinfo[]=[];
-  play:Playerinfo=<Playerinfo>{}
-  
- accounts:Account[]=[];
 
-  constructor(private playerService:PlayerinfoService) { 
-
-    
-  }
-  
+  user: LoggedUserEvent = {user: "" , city: "", character: "", silver: 0};
+  constructor(private loginService: LoginService) { }
 
   ngOnInit(): void {
-    this.players=[{id:1,character: 'Paladin',city:'Houston',silver:25, account:{id:1, username:'user',userPwd:'test'}}]
-   // this.getPlayer(1);
+    //this.players=[{id:1,character: 'Paladin',city:'Houston',silver:25, account:{id:1, username:'user',userPwd:'test', city:'Dallas',character:'Wizard', silver: 0}}]
+    
+    //TODO: use this data to show in player profile
+    this.loginService.$isLoggedIn.subscribe((data) =>{
+      console.log("I got this data in PlayerProfile component", data);
+      this.user = data;
+      console.log(this.user.character);
+    })
   }
-
-  // private getPlayer(id:number){
-  //   this.playerService.getPlayerById(id).subscribe({
-  //     next:(data:Playerinfo[])=>{
-  //       this.players=data;
-  //     }
-  //   })
-  // }
-
-
 }
   
 
