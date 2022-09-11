@@ -52,6 +52,26 @@ animation: moveAttackText 3.75s;
        
     
 }
+.left {
+    display: flex; 
+    margin-left: 10px;
+       
+    
+}
+.right {
+    display: flex; 
+    margin-left: 100px;
+       
+    
+}
+.playerContainer{
+    display: grid;
+    grid-template-columns: repeat(4, 2fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px
+
+}
 .battle-container {
     position: relative;
     border: 6px silver solid;        
@@ -87,7 +107,7 @@ animation: moveAttackText 3.75s;
 
 .navbar-container {    
     background-color: rgb(30, 27, 135);    
-    width: 25%;
+    width: 30%;
     padding: 10px 80px;
     border-radius: 15px 300px 30px;
     border: 1px solid;
@@ -112,12 +132,13 @@ animation: moveAttackText 3.75s;
     text-align: center;
 }
 .create-char-container {
-    display:flex;
+    display: flex;
     justify-content: center;
     border: 6px silver solid;
     background-image: url("~/assets/images/CreateAccountBackground.png");
     background-repeat: no-repeat;
     background-size: cover;
+   
 }
 .characterDesriptions {
     display: grid;

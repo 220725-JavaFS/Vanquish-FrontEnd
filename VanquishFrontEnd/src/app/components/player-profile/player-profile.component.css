@@ -1,10 +1,18 @@
 #PlayerInfo{
-    height: 400px;
+   
     float:left;
+    
     
 }
 #CharacterImage{
-    height:400px;
+   
+    float:center;
+    
+    
+}
+#Update{
+    
     float:right;
     
+
 }
