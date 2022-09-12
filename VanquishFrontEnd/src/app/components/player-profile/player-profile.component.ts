@@ -4,6 +4,11 @@ import { Account } from 'src/app/models/account';
 import { NgSwitchCase } from '@angular/common';
 import { LoginService } from 'src/app/services/login.service';
 import { LoggedUserEvent, LoginComponent } from '../login/login.component';
+import { AccountService } from 'src/app/services/account.service';
+import { ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormControl, FormGroup, FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
+
+
 
 
 @Component({
@@ -11,28 +16,36 @@ import { LoggedUserEvent, LoginComponent } from '../login/login.component';
   templateUrl: './player-profile.component.html',
   styleUrls: ['./player-profile.component.css']
 })
+
 export class PlayerProfileComponent implements OnInit {
 
   ImagePath: string[] = ['/assets/images/Default.png','/assets/images/Warrior.png','/assets/images/Paladin.png','/assets/images/Wizard.png','/assets/images/Rogue.png'];
-
+  editForm!: FormGroup;
   character =['Default','Paladin','Warrior','Wizard','Rogue'];
   ngOptions = this.character[0];
   
- 
 
-
-  accounts:Account[]=[];
-
-  pUser:string='test';
+  //account:Account=new Account[];
+  accounts: Account[]=[];
+  pId:number=0;
+  pUser:string='';
   pCity:string='';
   pCharacter:string='';
   pSilver:number=0;
+  username!: string;
 
+  constructor(private loginService: LoginService, private route:ActivatedRoute, private accountService:AccountService, private fb:FormBuilder ) { }
 
-  constructor(private loginService: LoginService) { }
-
+  
   ngOnInit(): void {
-  this.profile();
+    this.username = this.route.snapshot.params['username'];
+    // this.accountService.getAccountByUsername(this.username).subscribe(data=>{
+    //   this.account=data;
+    // });
+    this.editForm = new FormGroup({
+      city: new FormControl()
+  });
+    this.profile();
     //TODO: use this data to show in player profile
   }
   profile(){
@@ -40,6 +53,15 @@ export class PlayerProfileComponent implements OnInit {
     this.pCharacter=this.loginService.user.character;
     this.pCity=this.loginService.user.city;
     this.pSilver=this.loginService.user.silver; 
+  }
+  update(){
+    this.loginService.updateUser(this.username, this.accounts).subscribe((data:Account[])=>{
+      this.accounts=data;
+    })
+  }
+  onSubmit(){
+    
+
   }
 }
   
