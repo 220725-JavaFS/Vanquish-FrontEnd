@@ -26,7 +26,7 @@ export class PlayerProfileComponent implements OnInit {
   
 
   //account:Account=new Account[];
- 
+ account:Account=<Account>{};
   pId:number=0;
   pUser:string='';
   pCity:string='';
@@ -34,6 +34,7 @@ export class PlayerProfileComponent implements OnInit {
   pSilver:number=0;
   username!: string;
   city:string='';
+  passowrd:string='';
   //accounts: Account[]=[];
   constructor(private loginService: LoginService, private route:ActivatedRoute, private accountService:AccountService, private fb:FormBuilder ) { }
 
@@ -56,8 +57,10 @@ export class PlayerProfileComponent implements OnInit {
     this.pSilver=this.loginService.user.silver; 
   }
   update(){
-    this.loginService.updateUser(this.city).subscribe({next:()=>{
-      this.city;
+    let acc = new Account(0,this.pUser,"",this.pCity,this.pCharacter , this.pSilver);
+    console.log(acc);
+    this.loginService.updateUser(this.pUser,acc).subscribe({next:()=>{
+      //this.pCity=city;
     }
   })}
   // onSubmit(){

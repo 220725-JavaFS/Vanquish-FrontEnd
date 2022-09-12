@@ -14,7 +14,7 @@ export class LoginService {
   
 
   private baseUrl = "http://localhost:8084/data/login/";
-  
+  private profileUrl= "http://localhost:8084/data/profile"
   account:Account = <Account>{};
   $isLoggedIn = new EventEmitter();
   
@@ -50,7 +50,7 @@ export class LoginService {
   getAccountByUser(username:string):Observable<Account>{
     return this.httpClient.get<Account>(`${this.baseUrl}/${username}`)
   }
-  updateUser(username:string) : Observable<unknown>{
-    return this.httpClient.put(`${this.baseUrl}/${username}`,{}) as Observable<unknown>;
+  updateUser(username:string, account:Account) : Observable<any>{
+    return this.httpClient.put(`${this.profileUrl}/${username}`,account) as Observable<any>;
 }
 }
