@@ -14,4 +14,5 @@ export class RegistrationService {
   newUser(account: Account): Observable<Account>{
     return this.httpClient.post<Account>(this.baseUrl, account)
   }
+  
 }

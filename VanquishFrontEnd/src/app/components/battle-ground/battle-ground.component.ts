@@ -42,6 +42,7 @@ export class BattleGroundComponent implements OnInit {
   ngOnInit(): void{
     
     this.profile();
+    
     this.getWeatherByCity(this.pCity);//input user.city    
     this.setWeatherMod(this.pCharacter); //input user.character
     
@@ -157,8 +158,9 @@ export class BattleGroundComponent implements OnInit {
     const Damage = this.randomRoll(); 
     const PDamage = this.randomRoll();
     this.setWeatherMod(this.pCharacter);
-    const Playerdamage = (PDamage * this.physMod) * this.weatherMod;
-    monsterhealth = monsterhealth - Math.round(Playerdamage);
+    let Playerdamage = (PDamage * this.physMod) * this.weatherMod;
+    Playerdamage = Math.round(Playerdamage)
+    monsterhealth = monsterhealth - Playerdamage;
     health = health - Damage;
     this.monsterHealth = monsterhealth;
     this.playerHealth = health;
@@ -223,6 +225,7 @@ export class BattleGroundComponent implements OnInit {
     this.pCity = this.loginService.user.city;
     this.pSilver = this.loginService.user.silver;
   }
+  
 
 }
 
