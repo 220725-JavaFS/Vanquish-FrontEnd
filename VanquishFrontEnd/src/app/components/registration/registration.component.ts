@@ -22,7 +22,7 @@ export class RegistrationComponent implements OnInit {
     
   }
   createAccount() {
-    let acc = new Account(0,this.username,this.password,this.city,this.character , 100);
+    let acc = new Account(0,this.username,this.password,this.city,this.character , 0);
     this.resService.newUser(acc).subscribe((
       reponse: Account)=>{
         this.account = reponse;

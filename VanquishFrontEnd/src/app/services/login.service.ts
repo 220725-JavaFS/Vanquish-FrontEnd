@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { LoggedUserEvent } from '../components/login/login.component';
 import { Account } from '../models/account';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -46,9 +47,10 @@ export class LoginService {
       }
     })
   }
-  // getProfile(user:Account):Observable<Account> {
-  //   return this.httpClient.get<Account>('http://localhost:8084/data/profile/'+user)
-  // }
-
-
+  getAccountByUser(username:string):Observable<Account>{
+    return this.httpClient.get<Account>(`${this.baseUrl}/${username}`)
+  }
+  updateUser(username:any, data: any) : Observable<any>{
+    return this.httpClient.put(`${this.baseUrl}/${username}`,data);
+}
 }

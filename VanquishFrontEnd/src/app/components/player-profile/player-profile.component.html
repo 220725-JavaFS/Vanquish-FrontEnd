@@ -16,10 +16,10 @@
 <div class="playerContainer">
     <div class="BasicFont"> 
         <div>
-        <p class="users-user">UserName: : {{pUser}}</p>
-        <p class="users-city">City: {{pCity}}</p>
-        <p class="users-silver">SilverCount: {{pSilver}}</p>
-        <p class="users-character">Character: {{pCharacter}}</p>
+        <p class="p-id">Username: {{pUser}}</p>
+        <p class="p-City">City: {{pCity}}</p>
+        <p class="p-silver">SilverCount: {{pSilver}}</p>
+        <p class="p-character">Character: {{pCharacter}}</p>
         </div>
         <div>    
          <img *ngIf="pCharacter=='Warrior'" src="{{ImagePath[1]}}" alt="Character Choice" style="width:400px; height: 500px">
@@ -31,19 +31,17 @@
                     <article>
                         <!--Need to adjust layout where new changes is next to current information-->
                 <h3 class="BasicFont">If You Would Like to Change Your Information, Please Input New Data Below.</h3>
-                <form>        
-                    <input type="text" class="allinputs" id="newuName" placeholder="User Name"><br><br>
-                    <input type="text" class="allinputs" id="newuPass" placeholder="Password"><br><br>
-                    <input type="text" class="allinputs" id="newCity" placeholder="City"><br><br>
-                    <h3 class="BasicFont">Change Character</h3>
+                <form [formGroup]="editForm" #novalidate>       
+                    <input type="text" class="allinputs" id="newCity"  formControlName="city" placeholder="City"><br><br>
+                    <!-- <h3 class="BasicFont">Change Character</h3>
                     <select name="characters" class="allbuttons">
                         <option value="Default">Default</option>
                         <option value="Paladin">Paladin</option>
                         <option value="Wizard">Wizard</option>  
                         <option value="Rogue">Rogue</option>
                         <option value="Warrior">Warrior</option>        
-                    </select><br><br>
-                    <button type="submit" class="allbuttons" text="Update">Update</button> 
+                    </select><br><br> -->
+                    <button (click)="onSubmit()" class="allbuttons" text="Update">Update</button>
                 </form>
             </article>
             </section>

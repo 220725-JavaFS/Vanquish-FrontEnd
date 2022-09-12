@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +14,7 @@ import { BattleGroundComponent } from './components/battle-ground/battle-ground.
 import { PlayerInfoPipe } from './pipes/player-info.pipe';
 import { AccountListComponent } from './components/account-list/account-list.component';
 import { RedirectComponent } from './components/redirect/redirect.component';
+
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { RedirectComponent } from './components/redirect/redirect.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,   
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -9,7 +9,7 @@ import { Account } from '../models/account';
 export class AccountService {
 
   //temp baseURL
-  private baseURL = 'http://localhost:8080/Webapp/accounts/'
+  private baseURL = 'http://localhost:8084/data/profile/'
   
   constructor(private httpClient: HttpClient) { }
 
@@ -36,15 +36,17 @@ export class AccountService {
         accept: "application/json"
       }
     }) as Observable<Account>;
-  }
-  createAccount(account:any): void {
-    //initiate database storage
-  }
-  
-  
 
-  
-  
-
+  }
+  updateUser(username:string, user:Account): Observable<Object>{
+    return this.httpClient.put(`${this.baseURL}/${username}`, user);
+  }
+  putUpCity(username:string):Observable<Account>{
+    return this.httpClient.get(this.baseURL + `${username}`, {
+      headers: {
+        accept: "application/json"
+      }
+    }) as Observable<Account>;
+}
   }
 
