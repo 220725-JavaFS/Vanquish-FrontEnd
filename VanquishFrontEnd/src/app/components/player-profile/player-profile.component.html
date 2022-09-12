@@ -32,15 +32,15 @@
                         <!--Need to adjust layout where new changes is next to current information-->
                 <h3 class="BasicFont">If You Would Like to Change Your Information, Please Input New Data Below.</h3>
                 <form>       
-                    <input type="text" class="allinputs" [(ngModel)]="pCity" name="city" id="newCity"  placeholder="City"><br><br>
-                    <!-- <h3 class="BasicFont">Change Character</h3>
-                    <select name="characters" class="allbuttons">
+                    <input type="text" class="allinputs" [(ngModel)]="pCity" name="pCity" id="newCity"  placeholder="City"><br><br>
+                    <h3 class="BasicFont">Change Character</h3>
+                    <select [(ngModel)]="pCharacter" name="pCharacter" class="allbuttons">
                         <option value="Default">Default</option>
                         <option value="Paladin">Paladin</option>
                         <option value="Wizard">Wizard</option>  
                         <option value="Rogue">Rogue</option>
                         <option value="Warrior">Warrior</option>        
-                    </select><br><br> -->
+                    </select><br><br>
                     <button (click)="update()" class="allbuttons" text="Update">Update</button>
                 </form>
             </article>
