@@ -50,7 +50,7 @@ export class LoginService {
   getAccountByUser(username:string):Observable<Account>{
     return this.httpClient.get<Account>(`${this.baseUrl}/${username}`)
   }
-  updateUser(username:any, data: any) : Observable<any>{
-    return this.httpClient.put(`${this.baseUrl}/${username}`,data);
+  updateUser(username:string) : Observable<unknown>{
+    return this.httpClient.put(`${this.baseUrl}/${username}`,{}) as Observable<unknown>;
 }
 }

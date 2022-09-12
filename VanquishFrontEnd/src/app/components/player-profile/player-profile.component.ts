@@ -26,14 +26,15 @@ export class PlayerProfileComponent implements OnInit {
   
 
   //account:Account=new Account[];
-  accounts: Account[]=[];
+ 
   pId:number=0;
   pUser:string='';
   pCity:string='';
   pCharacter:string='';
   pSilver:number=0;
   username!: string;
-
+  city:string='';
+  //accounts: Account[]=[];
   constructor(private loginService: LoginService, private route:ActivatedRoute, private accountService:AccountService, private fb:FormBuilder ) { }
 
   
@@ -55,14 +56,14 @@ export class PlayerProfileComponent implements OnInit {
     this.pSilver=this.loginService.user.silver; 
   }
   update(){
-    this.loginService.updateUser(this.username, this.accounts).subscribe((data:Account[])=>{
-      this.accounts=data;
-    })
-  }
-  onSubmit(){
+    this.loginService.updateUser(this.city).subscribe({next:()=>{
+      this.city;
+    }
+  })}
+  // onSubmit(){
     
 
-  }
+  // }
 }
   
   
