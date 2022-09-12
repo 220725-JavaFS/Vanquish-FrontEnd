@@ -181,8 +181,9 @@ export class BattleGroundComponent implements OnInit {
     const Damage = this.randomRoll();
     const PDamage = this.randomRoll();
     this.setWeatherMod(this.pCharacter);
-    const Playerdamage = (PDamage * this.agilMod) * this.weatherMod;
-    monsterhealth = monsterhealth - Math.round(Playerdamage);
+    let Playerdamage = (PDamage * this.agilMod) * this.weatherMod;
+    Playerdamage = Math.round(Playerdamage)
+    monsterhealth = monsterhealth - Playerdamage;
     health = health - Damage;
     this.monsterHealth = monsterhealth;
     this.playerHealth = health;
@@ -201,8 +202,9 @@ export class BattleGroundComponent implements OnInit {
     const Damage = this.randomRoll();
     const PDamage = this.randomRoll();
     this.setWeatherMod(this.pCharacter);
-    const Playerdamage = (PDamage * this.magicMod) * this.weatherMod;
-    monsterhealth = monsterhealth - Math.round(Playerdamage);
+    let Playerdamage = (PDamage * this.agilMod) * this.weatherMod;
+    Playerdamage = Math.round(Playerdamage)
+    monsterhealth = monsterhealth - Playerdamage;
     health = health - Damage;
     this.monsterHealth = monsterhealth;
     this.playerHealth = health;
