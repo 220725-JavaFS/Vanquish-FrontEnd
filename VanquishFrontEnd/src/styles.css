@@ -167,4 +167,26 @@ animation: moveAttackText 3.75s;
     border: 6px silver solid;
     box-shadow: 5px 10px rgb(2, 2, 7);
 }
-
+.playercard {
+    background-image: url("~/assets/images/The_Great_Forest.jpg");
+    background-repeat: no-repeat;
+        background-size: cover;
+    display: flex;
+    justify-content: space-between;
+}
+.playerCharacter {
+    
+    margin-right: 100px;
+}
+.playerInfo {
+    font-size: 24px;
+    margin-right: 150px;
+    margin-left: 50px;
+    font-weight:900;
+    text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
+}
+.theMarginclass {
+    margin-right: 250px;
+    font-weight:900;
+    text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
+}

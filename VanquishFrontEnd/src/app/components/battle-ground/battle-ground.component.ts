@@ -32,7 +32,7 @@ export class BattleGroundComponent implements OnInit {
   win: boolean = false;
   loss: boolean = false;
   accounts: Account[] = [];
-
+  account: Account = <Account>{};
   pUser: string = 'test';
   pCity: string = '';
   pCharacter: string = '';
@@ -111,21 +111,21 @@ export class BattleGroundComponent implements OnInit {
         
         break;
       case "Wizard":
-        this.physMod = 0.5;
-        this.agilMod = 0.4;
+        this.physMod = 0.2;
+        this.agilMod = 0.6;
         this.magicMod = 1.5;
         if (this.sunny == true) {
           this.weatherMod = 1;
         } else if (this.rainy == true) {
-          this.weatherMod = 1.5
+          this.weatherMod = 1.8
         } else if (this.cloudy == true) {
           this.weatherMod = 1.3
         }        
         break;
       case "Rogue":
-        this.physMod = 1.2;
-        this.agilMod = 1.5;
-        this.magicMod = 0.5;
+        this.physMod = 1;
+        this.agilMod = 1.8;
+        this.magicMod = 0.6;
         if (this.sunny == true) {
           this.weatherMod = 0.7;
         } else if (this.rainy == true) {
@@ -166,14 +166,16 @@ export class BattleGroundComponent implements OnInit {
     this.playerHealth = health;
     this.mDamage = Damage;
     this.pDamage = Playerdamage;
-    if (this.monsterHealth <= 0 && this.playerHealth >0) {
+    if (this.monsterHealth <= 0 && this.playerHealth > 0) {
       this.win = true;
-        //add 1 silver to database
+      this.addSilver();
         
-    } else if (this.playerHealth <= 0 && this.monsterHealth>0) {
+    } else if (this.playerHealth <= 0 && this.monsterHealth > 0) {
       this.loss = true;
        
       
+    } else if (this.playerHealth <= 0 && this.monsterHealth <= 0) {
+      this.loss = true; 
     }
   }
   AgilityAttack(health: number, monsterhealth: number) {
@@ -191,10 +193,11 @@ export class BattleGroundComponent implements OnInit {
     this.pDamage = Playerdamage;
     if (this.monsterHealth <= 0) {
       this.win = true;
-      //add 1 silver to database
-      
+      this.addSilver();      
     } else if (this.playerHealth <= 0) {
       this.loss = true;      
+    } else if (this.playerHealth <= 0 && this.monsterHealth <= 0) {
+      this.loss = true;
     }
   }
   MagicAttack(health: number, monsterhealth: number) {
@@ -202,7 +205,7 @@ export class BattleGroundComponent implements OnInit {
     const Damage = this.randomRoll();
     const PDamage = this.randomRoll();
     this.setWeatherMod(this.pCharacter);
-    let Playerdamage = (PDamage * this.agilMod) * this.weatherMod;
+    let Playerdamage = (PDamage * this.magicMod) * this.weatherMod;
     Playerdamage = Math.round(Playerdamage)
     monsterhealth = monsterhealth - Playerdamage;
     health = health - Damage;
@@ -212,10 +215,11 @@ export class BattleGroundComponent implements OnInit {
     this.pDamage = Playerdamage;
     if (this.monsterHealth <= 0) {
       this.win = true;
-      //add 1 silver to database
-      
+      this.addSilver();      
     } else if (this.playerHealth <= 0) {
       this.loss = true;      
+    } else if (this.playerHealth <= 0 && this.monsterHealth <= 0) {
+      this.loss = true;
     }
   }
   reload() {
@@ -227,7 +231,18 @@ export class BattleGroundComponent implements OnInit {
     this.pCity = this.loginService.user.city;
     this.pSilver = this.loginService.user.silver;
   }
+
+  addSilver() {
+    this.pSilver++;
   
+    let acc = new Account(0, this.pUser, "", this.pCity, this.pCharacter, this.pSilver);
+    console.log(acc);
+    this.loginService.updateUser(this.pUser, acc).subscribe({
+      next: () => {
+        
+      }
+    })
+  }
 
 }
 

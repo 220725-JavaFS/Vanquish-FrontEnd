@@ -1,38 +1,30 @@
-<!DOCTYPE html>
-<html>
-<body>
-    <style>
-        article {
-  float: left;
-  padding: 20px;
-  width: 50%;
-  background-color: dark blue;
-  height: 300px; 
-}
-    </style>
-<div >
-    <h1 style="color: white">Player Profile</h1>
+
+<div>
+    <h1 class="BasicFont">Player Profile</h1>
 </div>
 <div class="playerContainer">
-    <div class="BasicFont"> 
-        <div>
-        <p class="p-id">Username: {{pUser}}</p>
-        <p class="p-City">City: {{pCity}}</p>
-        <p class="p-silver">SilverCount: {{pSilver}}</p>
-        <p class="p-character">Character: {{pCharacter}}</p>
-        </div>
-        <div>    
-         <img *ngIf="pCharacter=='Warrior'" src="{{ImagePath[1]}}" alt="Character Choice" style="width:400px; height: 500px">
-         <img *ngIf="pCharacter=='Paladin'" src="{{ImagePath[2]}}" alt="Character Choice" style="width:400px; height: 500px">
-         <img *ngIf="pCharacter=='Rogue'" src="{{ImagePath[4]}}" alt="Character Choice" style="width:400px; height: 600px">
-         <img *ngIf="pCharacter=='Wizard'" src="{{ImagePath[3]}}" alt="Character Choice" style="width:400px; height: 500px">
-        </div>
-                <section>
-                    <article>
-                        <!--Need to adjust layout where new changes is next to current information-->
-                <h3 class="BasicFont">If You Would Like to Change Your Information, Please Input New Data Below.</h3>
+    <div class="BasicFont">     
+         <div class="playercard">
+            <div class="playerInfo">
+                <h3>Username: {{pUser}}</h3>
+                <h3>City: {{pCity}}</h3>
+                <h3>SilverCount: {{pSilver}}</h3>
+                <h3>Character: {{pCharacter}}</h3>   
+            </div>
+            <div class="playerCharacter">
+                <img *ngIf="pCharacter=='Warrior'" src="{{ImagePath[1]}}" alt="Character Choice" style="width:400px; height: 750px">
+                <img *ngIf="pCharacter=='Paladin'" src="{{ImagePath[2]}}" alt="Character Choice" style="width:450px; height: 750px">
+                <img *ngIf="pCharacter=='Rogue'" src="{{ImagePath[4]}}" alt="Character Choice" style="width:400px; height: 750px">
+                <img *ngIf="pCharacter=='Wizard'" src="{{ImagePath[3]}}" alt="Character Choice" style="width:400px; height: 750px">
+        </div>     
+                
+            <div class="theMarginclass">       <!--Need to adjust layout where new changes is next to current information-->
+                <h3 class="BasicFont">If you would like to change your information, please input new data below.</h3>
                 <form>       
                     <input type="text" class="allinputs" [(ngModel)]="pCity" name="pCity" id="newCity"  placeholder="City"><br><br>
+                    <button (click)="update()" class="allbuttons" text="Update">Update</button>
+                </form>
+                <form>
                     <h3 class="BasicFont">Change Character</h3>
                     <select [(ngModel)]="pCharacter" name="pCharacter" class="allbuttons">
                         <option value="Default">Default</option>
@@ -43,9 +35,7 @@
                     </select><br><br>
                     <button (click)="update()" class="allbuttons" text="Update">Update</button>
                 </form>
-            </article>
-            </section>
-            </div>
+            </div>                
         </div>
-</body>
-</html>
+    </div>
+</div>
