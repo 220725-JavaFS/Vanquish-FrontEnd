@@ -33,6 +33,9 @@
                 <h3 class="BasicFont">If You Would Like to Change Your Information, Please Input New Data Below.</h3>
                 <form>       
                     <input type="text" class="allinputs" [(ngModel)]="pCity" name="pCity" id="newCity"  placeholder="City"><br><br>
+                    <button (click)="update()" class="allbuttons" text="Update">Update</button>
+                    </form>
+                    <form>
                     <h3 class="BasicFont">Change Character</h3>
                     <select [(ngModel)]="pCharacter" name="pCharacter" class="allbuttons">
                         <option value="Default">Default</option>
