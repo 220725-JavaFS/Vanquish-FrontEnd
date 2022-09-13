@@ -179,9 +179,14 @@ animation: moveAttackText 3.75s;
     margin-right: 100px;
 }
 .playerInfo {
-    margin-right: 250px;
+    font-size: 24px;
+    margin-right: 150px;
     margin-left: 50px;
+    font-weight:900;
+    text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
 }
 .theMarginclass {
     margin-right: 250px;
+    font-weight:900;
+    text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
 }
